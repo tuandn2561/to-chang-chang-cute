@@ -17,7 +17,17 @@ Một trang web tĩnh siêu dễ thương, ấm áp và ngập tràn tình yêu 
    - Trình phát nhạc đĩa than vinyl xoay tròn cute, có nút chuyển bài, tạm dừng/tiếp tục và danh sách chọn bài riêng.
    - Sử dụng công nghệ tổng hợp âm thanh **Web Audio API Grand Piano** chân thực, **không cần tải file MP3 nặng**, chạy mượt mà tức thì 0 giây chờ đợi!
 
-2. **🐰 Mascot Thỏ Bác Sĩ Chibi Tương Tác**:
+2. **🐱🐭 Hoạt Cảnh Bác Sĩ Mèo Tom & Bệnh Nhân Chuột Jerry Rượt Đuổi**:
+   - Nhân vật bác sĩ Mèo Tom mặc áo blouse trắng, đeo kính phản xạ bác sĩ, tay cầm ống tiêm siro dâu to đùng hối hả rượt đuổi bệnh nhân Chuột Jerry trùm khăn ấm, đội túi chườm đá chạy tung tăng khắp màn hình!
+   - Chạy qua chạy lại từ trái sang phải, tự động đổi hướng khi chạm rìa màn hình.
+   - Thổi ra các bóng thoại hoạt hình vui nhộn:
+     - Jerry: *"Sợ tiêm lắm! 🐭💨"*, *"Không uống thuốc đắng đâuuu!"*, *"Trang ơi cứu Jerry với! 🧀"*
+     - Tom: *"Đứng lại uống thuốc ngoan nào Jerry! 🐱💉"*, *"Chỉ một thìa siro dâu thôi mà! 🍓"*, *"Uống thuốc mới mau khỏi như bé Trang chứ! 🩺"*
+   - **Tương tác thú vị**:
+     - Bấm vào Jerry: Jerry nhào lộn 360 độ trên không, tăng tốc phóng vù vù `🧀 +100 Tốc độ!`.
+     - Bấm vào Tom: Tom loạng choạng ngã chúi mũi, ống tiêm bắn ra pháo hoa tim hồng cute!
+
+3. **🐰 Mascot Thỏ Bác Sĩ Chibi Tương Tác**:
    - Nhân vật hoạt hình đáng yêu cử động, nhấp nháy mắt, phát ra nụ hôn và lời nhắn ngọt ngào mỗi khi chạm vào.
 
 3. **⚡ Thanh Nạp Năng Lượng Sức Khỏe**:

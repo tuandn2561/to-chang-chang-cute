@@ -31,6 +31,112 @@
 .eq-bar:nth-child(3) { animation-delay: 0.5s; }
 .eq-bar:nth-child(4) { animation-delay: 0.2s; }
 
+/* Tom & Jerry Chase Animations */
+@keyframes runBounceJerry {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  25% {
+    transform: translateY(-6px) rotate(-4deg);
+  }
+  50% {
+    transform: translateY(-1px) rotate(2deg);
+  }
+  75% {
+    transform: translateY(-8px) rotate(-2deg);
+  }
+}
+
+@keyframes runBounceTom {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  25% {
+    transform: translateY(-8px) rotate(3deg);
+  }
+  50% {
+    transform: translateY(-2px) rotate(-2deg);
+  }
+  75% {
+    transform: translateY(-10px) rotate(4deg);
+  }
+}
+
+@keyframes syringePuff {
+  0%, 100% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(-10deg) scale(1.05);
+  }
+}
+
+.jerry-running {
+  animation: runBounceJerry 0.35s infinite ease-in-out;
+  transform-origin: bottom center;
+}
+
+.tom-running {
+  animation: runBounceTom 0.42s infinite ease-in-out;
+  transform-origin: bottom center;
+}
+
+.syringe-anim {
+  animation: syringePuff 0.6s infinite ease-in-out;
+  transform-origin: 30% 70%;
+}
+
+.chase-speech {
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  white-space: nowrap;
+  font-family: 'Mali', cursive;
+  font-weight: bold;
+  font-size: 11px;
+  line-height: 1.2;
+  padding: 4px 8px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+  pointer-events: none;
+  animation: fadeIn 0.25s ease-out;
+  z-index: 50;
+}
+
+/* Un-mirror speech text when actors flip horizontally */
+.flip-left .chase-speech {
+  transform: translateX(-50%) scaleX(-1) !important;
+}
+
+.chase-speech::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 5px;
+  border-style: solid;
+}
+
+.jerry-speech {
+  background: #fff8e7;
+  color: #b05700;
+  border: 1.5px solid #ffd166;
+}
+.jerry-speech::after {
+  border-color: #ffd166 transparent transparent transparent;
+}
+
+.tom-speech {
+  background: #eef4f8;
+  color: #1d3557;
+  border: 1.5px solid #a8dadc;
+}
+.tom-speech::after {
+  border-color: #a8dadc transparent transparent transparent;
+}
+
 /* Custom Styles & Cute Animations */
 
 @keyframes floatSlow {

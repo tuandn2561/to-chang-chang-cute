@@ -688,7 +688,7 @@
     </section>
 
     <!-- FOOTER -->
-    <footer class="text-center py-6 text-gray-500 text-xs font-medium w-full">
+    <footer class="text-center py-6 text-gray-500 text-xs font-medium w-full pb-20">
       <p class="flex items-center justify-center gap-1">
         Trang web được làm bằng 100% tình yêu và phép màu dành riêng cho <span class="text-pink-600 font-bold font-cute">Thu Trang</span> ✨
       </p>
@@ -698,6 +698,124 @@
     </footer>
 
   </main>
+
+  <!-- TOM & JERRY DOCTOR CHASE SCENE (Bác sĩ Tom đuổi bệnh nhân Jerry) -->
+  <aside id="tom-jerry-track" class="fixed bottom-1 left-0 w-full pointer-events-none z-30 overflow-visible h-24 sm:h-28" aria-label="Bác sĩ Mèo Tom rượt đuổi bệnh nhân Chuột Jerry">
+    <div id="chase-actors" class="absolute bottom-0 left-0 flex items-end gap-5 sm:gap-7 pointer-events-auto cursor-pointer select-none will-change-transform">
+      
+      <!-- Jerry Container (Patient in front) -->
+      <div id="jerry-wrapper" class="relative jerry-running group" title="Bấm vào bé chuột Jerry nghịch ngợm nè!">
+        <!-- Jerry speech bubble -->
+        <div id="jerry-speech" class="chase-speech jerry-speech opacity-0 transition-opacity duration-300">
+          Sợ tiêm lắm! 🐭💨
+        </div>
+        
+        <!-- Jerry SVG -->
+        <svg viewBox="0 0 100 85" class="w-14 h-12 sm:w-16 sm:h-14 drop-shadow-md">
+          <!-- Dust puff behind feet -->
+          <g opacity="0.6">
+            <circle cx="12" cy="74" r="5" fill="#f0d5ba"/>
+            <circle cx="20" cy="76" r="3" fill="#f0d5ba"/>
+          </g>
+          <!-- Tail -->
+          <path d="M 28 58 Q 10 55 15 38" fill="none" stroke="#935e38" stroke-width="3" stroke-linecap="round"/>
+          <!-- Body -->
+          <ellipse cx="45" cy="56" rx="18" ry="14" fill="#a46d43" transform="rotate(-15 45 56)"/>
+          <ellipse cx="44" cy="57" rx="12" ry="9" fill="#fceade" transform="rotate(-15 44 57)"/>
+          <!-- Scarf / Sick blanket trailing behind -->
+          <path d="M 52 48 Q 30 42 22 47 Q 28 52 48 52 Z" fill="#ff758f"/>
+          <!-- Legs running -->
+          <ellipse cx="36" cy="68" rx="8" ry="4" fill="#8c5832" transform="rotate(25 36 68)"/>
+          <ellipse cx="54" cy="70" rx="9" ry="4.5" fill="#a46d43" transform="rotate(-30 54 70)"/>
+          <!-- Head -->
+          <circle cx="65" cy="42" r="16" fill="#a46d43"/>
+          <ellipse cx="73" cy="46" rx="10" ry="7" fill="#fceade"/>
+          <!-- Ears -->
+          <circle cx="56" cy="28" r="11" fill="#8c5832"/>
+          <circle cx="56" cy="28" r="7" fill="#f8ad9d"/>
+          <!-- Ice Pack / Sick bandage on Jerry's head -->
+          <path d="M 62 26 Q 70 20 78 26 Q 74 34 62 26 Z" fill="#90e0ef"/>
+          <circle cx="70" cy="20" r="3" fill="#0077b6"/>
+          <!-- Eye looking back comically -->
+          <ellipse cx="66" cy="38" rx="4" ry="5.5" fill="#ffffff"/>
+          <circle cx="64" cy="38" r="2.5" fill="#222222"/>
+          <circle cx="63" cy="37" r="1" fill="#ffffff"/>
+          <!-- Cheeky smiling open mouth -->
+          <ellipse cx="78" cy="46" rx="2.5" ry="2" fill="#222222"/>
+          <path d="M 70 48 Q 75 54 80 49" fill="none" stroke="#44281d" stroke-width="2" stroke-linecap="round"/>
+          <!-- Whiskers -->
+          <path d="M 74 44 L 86 42 M 74 47 L 85 49" stroke="#5a3d31" stroke-width="1.2"/>
+        </svg>
+      </div>
+
+      <!-- Doctor Tom Container (behind Jerry, chasing with medicine) -->
+      <div id="tom-wrapper" class="relative tom-running group" title="Bác sĩ Mèo Tom đang cầm thuốc đuổi theo!">
+        <!-- Tom speech bubble -->
+        <div id="tom-speech" class="chase-speech tom-speech opacity-0 transition-opacity duration-300">
+          Đứng lại uống thuốc ngoan nào Jerry! 🐱💉
+        </div>
+
+        <!-- Tom SVG -->
+        <svg viewBox="0 0 150 115" class="w-24 h-20 sm:w-28 sm:h-22 drop-shadow-lg">
+          <!-- Dust clouds -->
+          <g opacity="0.6">
+            <circle cx="20" cy="98" r="7" fill="#cbd5e1"/>
+            <circle cx="32" cy="102" r="4.5" fill="#cbd5e1"/>
+          </g>
+          <!-- Tom Tail -->
+          <path d="M 40 70 Q 15 65 20 40" fill="none" stroke="#475569" stroke-width="5" stroke-linecap="round"/>
+          <circle cx="20" cy="40" r="3.5" fill="#f8fafc"/>
+          <!-- Tom Body leaning forward -->
+          <ellipse cx="65" cy="74" rx="26" ry="18" fill="#546a7b" transform="rotate(-18 65 74)"/>
+          <!-- White Doctor Coat -->
+          <path d="M 52 60 Q 75 55 86 64 L 80 88 Q 60 92 48 84 Z" fill="#ffffff" stroke="#e2e8f0" stroke-width="1.5"/>
+          <!-- Red Cross on coat pocket -->
+          <rect x="56" y="73" width="7" height="2" fill="#ef476f" rx="0.5"/>
+          <rect x="58.5" y="70.5" width="2" height="7" fill="#ef476f" rx="0.5"/>
+          <!-- Running Legs -->
+          <ellipse cx="48" cy="94" rx="12" ry="5.5" fill="#475569" transform="rotate(35 48 94)"/>
+          <ellipse cx="80" cy="98" rx="14" ry="6" fill="#546a7b" transform="rotate(-40 80 98)"/>
+          <ellipse cx="42" cy="97" rx="6" ry="3.5" fill="#ffffff" transform="rotate(35 42 97)"/>
+          <ellipse cx="88" cy="101" rx="6.5" ry="4" fill="#ffffff" transform="rotate(-40 88 101)"/>
+          <!-- Tom Head -->
+          <circle cx="95" cy="50" r="22" fill="#546a7b"/>
+          <!-- Ears -->
+          <polygon points="85,32 94,12 104,30" fill="#475569"/>
+          <polygon points="87,30 94,16 101,28" fill="#fbcfe8"/>
+          <!-- White Muzzle -->
+          <ellipse cx="106" cy="56" rx="12" ry="10" fill="#ffffff"/>
+          <ellipse cx="98" cy="58" rx="7" ry="6" fill="#ffffff"/>
+          <!-- Nose & Mouth -->
+          <ellipse cx="106" cy="51" rx="3.5" ry="2.5" fill="#ff758f"/>
+          <path d="M 98 56 Q 104 68 114 58" fill="#c1121f" stroke="#333333" stroke-width="1.5"/>
+          <path d="M 106 58 L 106 63" stroke="#ffffff" stroke-width="2"/>
+          <!-- Eyes -->
+          <ellipse cx="98" cy="42" rx="6" ry="8" fill="#ffea00"/>
+          <circle cx="100" cy="42" r="3" fill="#1b4332"/>
+          <circle cx="101" cy="40" r="1.2" fill="#ffffff"/>
+          <!-- Doctor Headband with Mirror -->
+          <path d="M 82 40 Q 95 33 110 40" fill="none" stroke="#e2e8f0" stroke-width="2.5"/>
+          <circle cx="95" cy="34" r="5" fill="#94a3b8" stroke="#ffffff" stroke-width="1.5"/>
+          <!-- Giant Syringe / Medicine Bottle held by Tom -->
+          <g class="syringe-anim" transform="translate(102, 54)">
+            <!-- Plunger -->
+            <rect x="0" y="3" width="12" height="3" fill="#cbd5e1" rx="1"/>
+            <rect x="10" y="1" width="3" height="7" fill="#94a3b8" rx="1"/>
+            <!-- Syringe barrel with pink sweet medicine -->
+            <rect x="12" y="0" width="24" height="9" fill="#ffffff" opacity="0.8" rx="2" stroke="#f43f5e" stroke-width="1.2"/>
+            <rect x="14" y="1.5" width="16" height="6" fill="#ff758f" rx="1.5"/>
+            <!-- Needle -->
+            <line x1="36" y1="4.5" x2="45" y2="4.5" stroke="#94a3b8" stroke-width="1.5" stroke-linecap="round"/>
+            <!-- Tiny droplet of strawberry medicine -->
+            <circle cx="47" cy="4.5" r="1.5" fill="#ff4d6d"/>
+          </g>
+          <!-- Tom Front Paw holding syringe -->
+          <circle cx="104" cy="62" r="6" fill="#ffffff" stroke="#e2e8f0" stroke-width="1"/>
+        </svg>
+      </div>
+
+    </div>
+  </aside>
 
   <!-- MODAL FOR MEDICINE DETAILS -->
   <div id="pill-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/40 backdrop-blur-sm opacity-0 pointer-events-none transition-opacity duration-300">

@@ -1266,4 +1266,152 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  // ==========================================
+  // 12. DOCTOR TOM & PATIENT JERRY CHASE CONTROLLER
+  // ==========================================
+  const chaseActors = document.getElementById('chase-actors');
+  const jerryWrapper = document.getElementById('jerry-wrapper');
+  const tomWrapper = document.getElementById('tom-wrapper');
+  const jerrySpeech = document.getElementById('jerry-speech');
+  const tomSpeech = document.getElementById('tom-speech');
+
+  if (chaseActors && jerryWrapper && tomWrapper) {
+    let chaseX = -180;
+    let direction = 1; // 1: moving right, -1: moving left
+    const baseSpeed = 2.4;
+    let speed = baseSpeed;
+    let isBoosting = false;
+
+    const jerryLines = [
+      'Sợ tiêm lắm! 🐭💨',
+      'Không uống thuốc đắng đâuuu!',
+      'Trang ơi cứu Jerry với! 🧀',
+      'Chạy trốn bác sĩ Tom thôiii!',
+      'Jerry muốn ăn phô mai cơ! 🧀',
+      'Bác sĩ Tom tha cho em đi! 🥺'
+    ];
+
+    const tomLines = [
+      'Đứng lại uống thuốc ngoan nào Jerry! 🐱💉',
+      'Chỉ một thìa siro dâu ngọt thôi mà! 🍓',
+      'Uống thuốc mới mau khỏi như bé Trang chứ! 🩺',
+      'Bác sĩ chỉ đo nhiệt độ thôi! 🌡️',
+      'Ngoan ngoãn nằm nghỉ ngơi đi Jerry! 🏃‍♂️',
+      'Đừng chạy nữa, anh mệt lắm rồi! 😹'
+    ];
+
+    // Animation frame movement
+    function stepChase() {
+      chaseX += speed * direction;
+      const screenWidth = window.innerWidth;
+
+      // Reached right edge -> turn left
+      if (direction === 1 && chaseX > screenWidth + 80) {
+        direction = -1;
+        chaseX = screenWidth + 70;
+        chaseActors.classList.add('flip-left');
+      }
+      // Reached left edge -> turn right
+      else if (direction === -1 && chaseX < -220) {
+        direction = 1;
+        chaseX = -200;
+        chaseActors.classList.remove('flip-left');
+      }
+
+      chaseActors.style.transform = `translateX(${chaseX}px) scaleX(${direction})`;
+      requestAnimationFrame(stepChase);
+    }
+    requestAnimationFrame(stepChase);
+
+    // Periodic comic speech bubble triggers
+    let speechTimer = 0;
+    setInterval(() => {
+      speechTimer++;
+      if (speechTimer % 2 === 1) {
+        const line = jerryLines[Math.floor(Math.random() * jerryLines.length)];
+        if (jerrySpeech) {
+          jerrySpeech.textContent = line;
+          jerrySpeech.classList.remove('opacity-0');
+          setTimeout(() => {
+            jerrySpeech.classList.add('opacity-0');
+          }, 2600);
+        }
+      } else {
+        const line = tomLines[Math.floor(Math.random() * tomLines.length)];
+        if (tomSpeech) {
+          tomSpeech.textContent = line;
+          tomSpeech.classList.remove('opacity-0');
+          setTimeout(() => {
+            tomSpeech.classList.add('opacity-0');
+          }, 2600);
+        }
+      }
+    }, 4200);
+
+    // Clicking Jerry: Jerry does a 360 flip, pops hearts, and speeds up!
+    jerryWrapper.addEventListener('click', (e) => {
+      e.stopPropagation();
+      playPop(750);
+
+      jerryWrapper.style.transform = 'translateY(-22px) rotate(360deg)';
+      jerryWrapper.style.transition = 'transform 0.45s ease-out';
+      setTimeout(() => {
+        jerryWrapper.style.transform = '';
+        jerryWrapper.style.transition = '';
+      }, 450);
+
+      const rect = jerryWrapper.getBoundingClientRect();
+      spawnFloatingReaction(rect.left + 20, rect.top - 10, '🧀 +100 Tốc độ!');
+
+      if (jerrySpeech) {
+        jerrySpeech.textContent = 'Á á chạy nhanh hơn nữa nè! 🏃‍♂️💨';
+        jerrySpeech.classList.remove('opacity-0');
+        setTimeout(() => jerrySpeech.classList.add('opacity-0'), 2000);
+      }
+
+      if (!isBoosting) {
+        isBoosting = true;
+        speed = baseSpeed * 2.2;
+        setTimeout(() => {
+          speed = baseSpeed;
+          isBoosting = false;
+        }, 1800);
+      }
+    });
+
+    // Clicking Tom: Tom stumbles, squirts pink strawberry droplets from syringe!
+    tomWrapper.addEventListener('click', (e) => {
+      e.stopPropagation();
+      playChime(4);
+
+      tomWrapper.style.transform = 'scale(0.85) rotate(-15deg)';
+      tomWrapper.style.transition = 'transform 0.25s';
+      setTimeout(() => {
+        tomWrapper.style.transform = '';
+        tomWrapper.style.transition = '';
+      }, 350);
+
+      const rect = tomWrapper.getBoundingClientRect();
+      spawnFloatingReaction(rect.left + 30, rect.top - 15, '🐱 Chờ bác sĩ với Jerry!');
+
+      if (tomSpeech) {
+        tomSpeech.textContent = 'Jerry đứng lại cho bác sĩ! 😹💉';
+        tomSpeech.classList.remove('opacity-0');
+        setTimeout(() => tomSpeech.classList.add('opacity-0'), 2000);
+      }
+
+      if (typeof confetti === 'function') {
+        confetti({
+          particleCount: 18,
+          spread: 60,
+          origin: {
+            x: (rect.left + rect.width / 2) / window.innerWidth,
+            y: (rect.top + rect.height / 2) / window.innerHeight
+          },
+          colors: ['#ff4d6d', '#ff8fab', '#ffffff']
+        });
+      }
+    });
+  }
+
 });
