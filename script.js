@@ -100,9 +100,121 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // ==========================================
-  // 5 GENTLE PIANO TRACK COMPOSITIONS
+  // SOLFEGGIO 174 HZ NATURAL HEALING DRONE
+  // (Anesthetic / Natural pain relief frequency)
+  // ==========================================
+  let drone174Gain = null;
+  let droneOsc1 = null;
+  let droneOsc2 = null;
+
+  function start174HzDrone() {
+    const ctx = getAudioContext();
+    if (!ctx) return;
+    stop174HzDrone();
+
+    try {
+      droneOsc1 = ctx.createOscillator();
+      droneOsc2 = ctx.createOscillator();
+      const droneFilter = ctx.createBiquadFilter();
+      drone174Gain = ctx.createGain();
+
+      // Pure 174.00 Hz (Solfeggio natural pain relief)
+      droneOsc1.type = 'sine';
+      droneOsc1.frequency.setValueAtTime(174.0, ctx.currentTime);
+
+      // Subtle 174.5 Hz binaural delta wave (0.5Hz deep relaxation)
+      droneOsc2.type = 'sine';
+      droneOsc2.frequency.setValueAtTime(174.5, ctx.currentTime);
+
+      droneFilter.type = 'lowpass';
+      droneFilter.frequency.setValueAtTime(380, ctx.currentTime);
+
+      // Soft, warm, soothing volume
+      drone174Gain.gain.setValueAtTime(0.0001, ctx.currentTime);
+      drone174Gain.gain.linearRampToValueAtTime(0.075, ctx.currentTime + 2.5);
+
+      droneOsc1.connect(droneFilter);
+      droneOsc2.connect(droneFilter);
+      droneFilter.connect(drone174Gain);
+      drone174Gain.connect(ctx.destination);
+
+      droneOsc1.start();
+      droneOsc2.start();
+    } catch (e) {
+      console.warn(e);
+    }
+  }
+
+  function stop174HzDrone() {
+    if (drone174Gain && audioCtx) {
+      try {
+        drone174Gain.gain.linearRampToValueAtTime(0.0001, audioCtx.currentTime + 0.8);
+        setTimeout(() => {
+          if (droneOsc1) { droneOsc1.stop(); droneOsc1.disconnect(); droneOsc1 = null; }
+          if (droneOsc2) { droneOsc2.stop(); droneOsc2.disconnect(); droneOsc2 = null; }
+          if (drone174Gain) { drone174Gain.disconnect(); drone174Gain = null; }
+        }, 900);
+      } catch (e) {}
+    }
+  }
+
+  // ==========================================
+  // 6 GENTLE PIANO TRACK COMPOSITIONS
   // ==========================================
   const pianoPlaylists = [
+    {
+      id: 'solfeggio-174hz',
+      title: '174Hz Giảm Đau & Chữa Lành',
+      artist: 'Solfeggio Healing Piano',
+      desc: 'Tần số 174Hz xoa dịu cơn đau, hạ sốt, thư giãn cơ thể cho bé Trang',
+      is174Hz: true,
+      tempo: 900,
+      notes: [
+        // Fmaj7 (Harmonizes with 174Hz = F3)
+        { note: 'F2', beat: 0, dur: 4.5, vel: 0.75 },
+        { note: 'C3', beat: 0.6, dur: 3.5, vel: 0.5 },
+        { note: 'F3', beat: 1.2, dur: 3.5, vel: 0.55 },
+        { note: 'A3', beat: 1.8, dur: 3.0, vel: 0.5 },
+        { note: 'C4', beat: 2.4, dur: 2.8, vel: 0.55 },
+        { note: 'E4', beat: 3.0, dur: 2.5, vel: 0.6 },
+        { note: 'A4', beat: 0, dur: 2.5, vel: 0.75 },
+        { note: 'C5', beat: 1.5, dur: 2.5, vel: 0.8 },
+        { note: 'E5', beat: 3.0, dur: 2.8, vel: 0.85 },
+
+        // Dm9 (Deep emotional warmth & soothing release)
+        { note: 'D2', beat: 4.2, dur: 4.5, vel: 0.75 },
+        { note: 'A2', beat: 4.8, dur: 3.5, vel: 0.5 },
+        { note: 'D3', beat: 5.4, dur: 3.5, vel: 0.55 },
+        { note: 'F3', beat: 6.0, dur: 3.0, vel: 0.5 },
+        { note: 'A3', beat: 6.6, dur: 2.8, vel: 0.55 },
+        { note: 'C4', beat: 7.2, dur: 2.5, vel: 0.6 },
+        { note: 'F4', beat: 4.2, dur: 2.5, vel: 0.75 },
+        { note: 'A4', beat: 5.6, dur: 2.5, vel: 0.8 },
+        { note: 'D5', beat: 7.0, dur: 2.8, vel: 0.85 },
+
+        // Bbmaj7 (Soft, peaceful embrace)
+        { note: 'Bb1', beat: 8.4, dur: 4.5, vel: 0.75 },
+        { note: 'F2', beat: 9.0, dur: 3.5, vel: 0.5 },
+        { note: 'Bb2', beat: 9.6, dur: 3.5, vel: 0.55 },
+        { note: 'D3', beat: 10.2, dur: 3.0, vel: 0.5 },
+        { note: 'F3', beat: 10.8, dur: 2.8, vel: 0.55 },
+        { note: 'A3', beat: 11.4, dur: 2.5, vel: 0.6 },
+        { note: 'D4', beat: 8.4, dur: 2.5, vel: 0.75 },
+        { note: 'F4', beat: 9.8, dur: 2.5, vel: 0.8 },
+        { note: 'A4', beat: 11.2, dur: 2.8, vel: 0.85 },
+
+        // C7sus4 -> C (Gentle resolution, peaceful breathing)
+        { note: 'C2', beat: 12.6, dur: 4.5, vel: 0.75 },
+        { note: 'G2', beat: 13.2, dur: 3.5, vel: 0.5 },
+        { note: 'C3', beat: 13.8, dur: 3.5, vel: 0.55 },
+        { note: 'F3', beat: 14.4, dur: 3.0, vel: 0.5 },
+        { note: 'G3', beat: 15.0, dur: 2.8, vel: 0.55 },
+        { note: 'B3', beat: 15.6, dur: 2.5, vel: 0.6 },
+        { note: 'E4', beat: 12.6, dur: 2.5, vel: 0.75 },
+        { note: 'G4', beat: 14.0, dur: 2.5, vel: 0.8 },
+        { note: 'C5', beat: 15.4, dur: 3.2, vel: 0.85 }
+      ]
+    },
     {
       id: 'river-flows',
       title: 'River Flows In You',
@@ -385,7 +497,11 @@ document.addEventListener('DOMContentLoaded', () => {
       if (playPauseIcon) playPauseIcon.textContent = '⏸️';
       if (vinylDisc) vinylDisc.classList.add('animate-spin-slow');
       if (eqContainer) eqContainer.classList.remove('opacity-30');
-      if (playerStatusText) playerStatusText.textContent = 'Đang phát piano êm dịu...';
+      if (playerStatusText) {
+        playerStatusText.textContent = track.is174Hz
+          ? '🌿 Đang phát tần số 174Hz xoa dịu mệt mỏi & đau nhức...'
+          : 'Đang phát piano êm dịu...';
+      }
     } else {
       if (playPauseIcon) playPauseIcon.textContent = '▶️';
       if (vinylDisc) vinylDisc.classList.remove('animate-spin-slow');
@@ -401,7 +517,15 @@ document.addEventListener('DOMContentLoaded', () => {
     if (trackTimer) clearTimeout(trackTimer);
     isPianoPlaying = true;
     updatePlayerUI();
-    scheduleTrack(pianoPlaylists[currentTrackIndex]);
+
+    const track = pianoPlaylists[currentTrackIndex];
+    if (track.is174Hz) {
+      start174HzDrone();
+    } else {
+      stop174HzDrone();
+    }
+
+    scheduleTrack(track);
 
     // Hide autoplay banner once playing
     if (autoplayBanner) {
@@ -414,6 +538,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function pausePiano() {
     isPianoPlaying = false;
+    stop174HzDrone();
     if (trackTimer) clearTimeout(trackTimer);
     updatePlayerUI();
   }
@@ -454,8 +579,9 @@ document.addEventListener('DOMContentLoaded', () => {
       item.innerHTML = `
         <div class="min-w-0 flex-1">
           <div class="font-cute font-bold text-sm truncate flex items-center gap-1.5">
-            <span>${isCurrent ? '🎶' : '🎹'}</span>
+            <span>${track.is174Hz ? '🌿' : (isCurrent ? '🎶' : '🎹')}</span>
             <span>${track.title}</span>
+            ${track.is174Hz ? '<span class="text-[9px] bg-emerald-100 text-emerald-700 px-1.5 py-0.2 rounded-full font-bold">174Hz Giảm Đau</span>' : ''}
           </div>
           <p class="text-[11px] text-gray-500 truncate mt-0.5">${track.desc}</p>
         </div>

@@ -6,9 +6,11 @@ Một trang web tĩnh siêu dễ thương, ấm áp và ngập tràn tình yêu 
 
 ## ✨ Điểm Nổi Bật & Tính Năng Dễ Thương
 
-1. **🎹 Tự Động Chơi Nhạc Piano Dịu Êm (Autoplay)**:
-   - Ngay khi vừa mở trang web (hoặc chạm/lướt nhẹ màn hình), trang web sẽ **tự động chơi các bản nhạc piano acoustic nhẹ nhàng, êm ái**.
-   - Bộ sưu tập 5 bản piano chữa lành:
+1. **🌿🎹 Tự Động Chơi Nhạc Tần Số 174Hz & Piano Dịu Êm (Autoplay)**:
+   - Ngay khi vừa mở trang web (hoặc chạm/lướt nhẹ màn hình), trang web sẽ **tự động chơi bản nhạc Tần số 174Hz Solfeggio kết hợp Piano acoustic chữa lành**.
+   - **Tần số 174Hz**: Được biết đến là *"liều thuốc giảm đau tự nhiên của tạo hóa"* trong liệu pháp âm thanh, giúp xoa dịu các cơn nhức đầu, mỏi cơ, hạ nhiệt cơn sốt và đưa cơ thể vào trạng thái thư giãn sâu.
+   - Bộ sưu tập 6 bản nhạc chữa lành:
+     - 🌿 **174Hz Giảm Đau & Chữa Lành** (*Solfeggio Healing Piano - Tần số 174Hz ru êm cơ thể*)
      - 🎵 *River Flows In You* - Yiruma (Ngọt ngào, yêu thương)
      - 🎵 *Gymnopédie No. 1* - Erik Satie (Thanh thản, xoa dịu tâm trí)
      - 🎵 *Canon in D* - Johann Pachelbel (Ấm áp, tích cực hồi phục)
