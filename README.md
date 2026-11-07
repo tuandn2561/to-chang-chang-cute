@@ -1,6 +1,6 @@
-# 🌸 Trạm Nạp Năng Lượng Yêu Thương Cho Bé Thu Trang Mau Khỏe 💖
+# 🌸 Trạm Tiếp Sức & Nạp Năng Lượng Cho Bé Thu Trang Mau Khỏe 💖
 
-Một trang web tĩnh siêu dễ thương, ấm áp và ngập tràn tình yêu được thiết kế đặc biệt để gửi gắm tới cô gái của bạn — **Thu Trang** — giúp em có thêm niềm vui, nụ cười và năng lượng tích cực để mau chóng khỏi ốm!
+Một trang web tĩnh siêu dễ thương, ấm áp và ngập tràn sự quan tâm được thiết kế đặc biệt để gửi gắm tới cô gái bạn thầm thương — **Thu Trang** — giúp em có thêm niềm vui, nụ cười và năng lượng tích cực để mau chóng khỏi ốm!
 
 ---
 
@@ -44,16 +44,16 @@ Một trang web tĩnh siêu dễ thương, ấm áp và ngập tràn tình yêu 
    - Chú cua nhỏ chibi siêu đáng yêu với đôi cuống mắt cử động, đôi mắt anime long lanh nhấp nháy, má hồng hây hây và nụ cười rạng rỡ.
    - Hai càng to vẫy chào mừng và ôm trọn **bó hoa to đùng nở rộ ngập tràn các loài hoa**: hoa hồng đỏ nhung, mẫu đơn hồng, hoa hướng dương rực rỡ, tulip cam ấm áp, lavender tím mộng mơ, hoa lưu ly xanh biếc, hoa cúc họa mi trắng, hoa đào cùng cành lá tươi xanh và thắt nơ ruy băng satin óng ánh.
    - 6 chân cua nhỏ nhúc nhích ngộ nghĩnh bên dưới (`crabLegWiggle`).
-   - Chạm vào chú cua nhỏ sẽ tung ra pháo hoa sắc màu kèm các câu thoại ngọt ngào: *"Cua nhỏ mang bó hoa to thật nhiều hoa tặng Công Chúa Thu Trang nè! 🦀💐"*, *"Báo cáo Sếp: Cua nhỏ đã dùng càng kẹp hết mệt mỏi quăng đi xa rồi! 🦀✨"*, *"Cua nhỏ bò ngang nhưng tình yêu anh dành cho Công Chúa luôn đi thẳng! 🦀❤️"*.
+   - Chạm vào chú cua nhỏ sẽ tung ra pháo hoa sắc màu kèm các câu thoại ngọt ngào: *"Cua nhỏ mang bó hoa to thật nhiều hoa tặng Thu Trang nè! 🦀💐"*, *"Báo cáo Sếp: Cua nhỏ đã dùng càng kẹp hết mệt mỏi quăng đi xa rồi! 🦀✨"*, *"Cua nhỏ bò ngang nhưng lòng quan tâm anh dành cho Sếp luôn đi thẳng! 🦀✨"*.
 
 6. **🍲 Vòng Quay Món Ngon Bồi Bổ (Có "Anh Thơm Má" & "Anh Hôn Môi")**:
-   - Menu đặc sản chăm người yêu ốm độc quyền:
+   - Menu đặc sản chăm sóc bạn gái ốm chu đáo độc quyền:
      - 🥰 **Món Anh Thơm Má (Combo 100 Cái Chụt Chụt)**: Thơm chụt chụt lên đôi má bánh bao đến khi em cười tít mắt!
-     - 👩‍❤️‍💋‍👨 **Món Anh Hôn Môi Say Đắm**: Nụ hôn nồng nàn truyền 100% đề kháng và năng lượng tình yêu cho bé Trang!
+     - 👩‍❤️‍💋‍👨 **Món Anh Hôn Môi Ngọt Ngào**: Nụ hôn ngọt ngào truyền 100% đề kháng và năng lượng ấm áp cho bé Trang!
      - Kèm các món ấm bụng: cháo gà hạt sen nóng hổi, súp cua bắp non, phở bò tái lăn, nước cam mật ong, sữa hạt ấm...
    - Quay trúng món thơm má hoặc hôn môi sẽ bắn pháo hoa trái tim hồng lãng mạn!
 
-7. **🍬 Tiệm Thuốc Kẹo Ngọt Độc Quyền (Bác Sĩ Người Yêu)**:
+7. **🍬 Tiệm Thuốc Kẹo Ngọt Độc Quyền (Bác Sĩ Anh)**:
    - 6 toa thuốc ngọt ngào đặc biệt: *Viên Xua Tan Mệt Mỏi, Bát Cháo Gà Ấm Bụng, Cốc Vitamin C Tươi, Liều Ôm 24/7 Không Giới Hạn, Gối Mây Ru Ngủ Say, và Vé Đi Ăn Thỏa Thích Khi Khỏe*.
    - Mở popup cute kèm nút "Uống ngay 💖".
 
@@ -65,8 +65,8 @@ Một trang web tĩnh siêu dễ thương, ấm áp và ngập tràn tình yêu 
    - Đếm số lượng cái ôm và nụ hôn đã gửi cho Thu Trang.
    - Hiệu ứng tim bay bổng, gợn sóng lan tỏa và lời nhắn cưng chiều.
 
-9. **💌 Phong Thư Bí Mật Tình Cảm**:
-   - Bức thư ấm áp từ người yêu với từng lời nhắn nhủ chân thành, cảm động, xoa dịu mọi mệt mỏi.
+9. **💌 Phong Thư Bí Mật Chân Thành**:
+   - Bức thư ấm áp với từng lời nhắn nhủ chân thành, cảm động, xoa dịu mọi mệt mỏi.
 
 10. **🌸 Hiệu Ứng Bầu Trời Bay Bổng & Con Trỏ Lấp Lánh**:
     - Nền canvas tự vẽ các trái tim, ngôi sao, bong bóng pastel trôi nhẹ nhàng.
