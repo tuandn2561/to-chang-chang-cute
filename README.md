@@ -6,18 +6,17 @@ Một trang web tĩnh siêu dễ thương, ấm áp và ngập tràn tình yêu 
 
 ## ✨ Điểm Nổi Bật & Tính Năng Dễ Thương
 
-1. **🌿🎹 Tự Động Chơi Nhạc Tần Số 174Hz & Piano Dịu Êm (Autoplay)**:
-   - Ngay khi vừa mở trang web (hoặc chạm/lướt nhẹ màn hình), trang web sẽ **tự động chơi bản nhạc Tần số 174Hz Solfeggio kết hợp Piano acoustic chữa lành**.
-   - **Tần số 174Hz**: Được biết đến là *"liều thuốc giảm đau tự nhiên của tạo hóa"* trong liệu pháp âm thanh, giúp xoa dịu các cơn nhức đầu, mỏi cơ, hạ nhiệt cơn sốt và đưa cơ thể vào trạng thái thư giãn sâu.
-   - Bộ sưu tập 6 bản nhạc chữa lành:
-     - 🌿 **174Hz Giảm Đau & Chữa Lành** (*Solfeggio Healing Piano - Tần số 174Hz ru êm cơ thể*)
-     - 🎵 *River Flows In You* - Yiruma (Ngọt ngào, yêu thương)
+1. **🎹 Trình Phát Piano Dịu Êm Bên Góc Phải (Auto-Play & Auto-Advance)**:
+   - Thanh phát nhạc nhỏ gọn đặt ở **góc trên bên phải**, không che tiêu đề hay nội dung.
+   - Ngay khi mở web hoặc chạm nhẹ màn hình, nhạc piano acoustic êm ái sẽ vang lên.
+   - **Tự động chuyển bài (Auto-advance)**: Khi một bản nhạc kết thúc, bài tiếp theo sẽ tự động được phát liên tục không bị gián đoạn.
+   - Bộ sưu tập 5 bản piano êm dịu:
+     - 🎵 *River Flows In You* - Yiruma (Ngọt ngào, vỗ về)
      - 🎵 *Gymnopédie No. 1* - Erik Satie (Thanh thản, xoa dịu tâm trí)
-     - 🎵 *Canon in D* - Johann Pachelbel (Ấm áp, tích cực hồi phục)
-     - 🎵 *Kiss The Rain* - Yiruma (Từng giọt mưa rơi êm đềm vỗ về)
+     - 🎵 *Canon in D* - Johann Pachelbel (Hồi sinh sức khỏe, an yên)
+     - 🎵 *Kiss The Rain* - Yiruma (Từng giọt mưa rơi êm đềm như lời vỗ về)
      - 🎵 *Khúc Hát Ru Bé Thu Trang* (Giấc ngủ ngon lành, sáng mai khỏe re)
-   - Trình phát nhạc đĩa than vinyl xoay tròn cute, có nút chuyển bài, tạm dừng/tiếp tục và danh sách chọn bài riêng.
-   - Sử dụng công nghệ tổng hợp âm thanh **Web Audio API Grand Piano** chân thực, **không cần tải file MP3 nặng**, chạy mượt mà tức thì 0 giây chờ đợi!
+   - Sử dụng công nghệ tổng hợp âm thanh **Web Audio API Grand Piano** chân thực, **không cần tải file MP3 nặng**, chạy tức thì 0 giây chờ đợi!
 
 2. **🐱🐭 Hoạt Cảnh Bác Sĩ Mèo Tom & Bệnh Nhân Chuột Jerry Rượt Đuổi**:
    - Nhân vật bác sĩ Mèo Tom mặc áo blouse trắng, đeo kính phản xạ bác sĩ, tay cầm ống tiêm siro dâu to đùng hối hả rượt đuổi bệnh nhân Chuột Jerry trùm khăn ấm, đội túi chườm đá chạy tung tăng khắp màn hình!
@@ -29,14 +28,22 @@ Một trang web tĩnh siêu dễ thương, ấm áp và ngập tràn tình yêu 
      - Bấm vào Jerry: Jerry nhào lộn 360 độ trên không, tăng tốc phóng vù vù `🧀 +100 Tốc độ!`.
      - Bấm vào Tom: Tom loạng choạng ngã chúi mũi, ống tiêm bắn ra pháo hoa tim hồng cute!
 
-3. **🐰 Mascot Thỏ Bác Sĩ Chibi Tương Tác**:
+3. **⚡ Thanh Nạp Năng Lượng Cho Phép Vượt Mức +100% & Reset Khi Refresh**:
+   - Bắt đầu ở **0%** mỗi khi mở hoặc refresh trang để bé Trang tha hồ sạc lại từ đầu.
+   - Mỗi lần bấm *"Bấm để sạc thêm năng lượng (+15%)"* sẽ cộng dồn liên tục không giới hạn:
+     - Đạt 100%: Nổ pháo hoa ăn mừng rực rỡ!
+     - Vượt trên 100% (`+115%`, `+130%`, `+200%+`): Kích hoạt hiệu ứng **Hào quang Vũ trụ Cầu vồng Siêu cấp (Rainbow Cosmic Aura)** kèm danh hiệu *"SIÊU CẤP 🔥"*!
+   - Nút **"🔄 Đặt lại 0%"** để làm mới bất kỳ lúc nào mà không cần tải lại trang.
+
+4. **🩺 Bảng Dặn Dò Của Bác Sĩ Đáng Yêu (Checklist)**:
+   - Tự động đặt lại trạng thái về **0/6 việc** mỗi khi refresh trang để Trang theo dõi lại lộ trình uống thuốc, uống nước, nghỉ ngơi trong ngày.
+   - Kèm nút làm mới nhanh **🔄**.
+   - Hoàn thành đủ 6 việc sẽ mở huy hiệu khen thưởng từ Bác sĩ Anh cùng màn mưa pháo hoa!
+
+5. **🐰 Mascot Thỏ Bác Sĩ Chibi Tương Tác**:
    - Nhân vật hoạt hình đáng yêu cử động, nhấp nháy mắt, phát ra nụ hôn và lời nhắn ngọt ngào mỗi khi chạm vào.
 
-3. **⚡ Thanh Nạp Năng Lượng Sức Khỏe**:
-   - Mỗi lần bấm nút *"Sạc thêm năng lượng (+15%)"* sẽ tăng phần trăm sức khỏe kèm các hiệu ứng bay bổng (+15% Sức khỏe, +1 bát cháo nóng, +1 nụ hôn trán...).
-   - Đạt 100% sẽ mở màn pháo hoa giấy (confetti) tưng bừng!
-
-4. **🍬 Tiệm Thuốc Kẹo Ngọt Độc Quyền (Bác Sĩ Người Yêu)**:
+6. **🍬 Tiệm Thuốc Kẹo Ngọt Độc Quyền (Bác Sĩ Người Yêu)**:
    - 6 toa thuốc ngọt ngào đặc biệt: *Viên Xua Tan Mệt Mỏi, Bát Cháo Gà Ấm Bụng, Cốc Vitamin C Tươi, Liều Ôm 24/7 Không Giới Hạn, Gối Mây Ru Ngủ Say, và Vé Đi Ăn Thỏa Thích Khi Khỏe*.
    - Mở popup cute kèm nút "Uống ngay 💖".
 
