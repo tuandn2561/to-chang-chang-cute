@@ -854,12 +854,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // ==========================================
   // 5. FEATURE 1: HEALING BATTERY (NĂNG LƯỢNG)
+  // Luôn đặt lại về 0% khi tải/refresh trang theo yêu cầu
+  // Cho phép nạp cộng dồn vượt trên 100%+ không giới hạn!
   // ==========================================
-  let energy = parseInt(localStorage.getItem('thu_trang_energy') || '45', 10);
+  let energy = 0;
+  try {
+    localStorage.removeItem('thu_trang_energy');
+  } catch (e) {}
+
   const energyBar = document.getElementById('energy-bar');
   const energyPercentage = document.getElementById('energy-percentage');
   const energyStatusText = document.getElementById('energy-status-text');
   const chargeBtn = document.getElementById('charge-btn');
+  const resetEnergyBtn = document.getElementById('reset-energy-btn');
 
   const energyAffirmations = [
     '+15% Năng Lượng Yêu Thương! ⚡',
@@ -867,27 +874,52 @@ document.addEventListener('DOMContentLoaded', () => {
     '+1 Nụ Hôn Trán Dịu Dàng! 💋',
     '+1 Lời Động Viên Ấm Lòng! 🌸',
     '+1 Chiếc Ôm Thật Chặt! 🧸',
-    '+1 Phép Màu Xua Cảm Cúm! ✨'
+    '+1 Phép Màu Xua Cảm Cúm! ✨',
+    '+15% Đề Kháng Siêu Cường! 🛡️',
+    '+15% Vitamin Hạnh Phúc! 🍓'
   ];
 
   function updateEnergyUI() {
-    if (energy > 100) energy = 100;
-    if (energyBar) energyBar.style.width = `${energy}%`;
-    if (energyPercentage) energyPercentage.textContent = `${energy}%`;
+    // Độ rộng thanh chạy (tối đa 100% hiển thị trực quan)
+    const fillPercent = Math.min(Math.max(0, energy), 100);
+    if (energyBar) {
+      energyBar.style.width = `${fillPercent}%`;
+      if (energy > 100) {
+        energyBar.classList.add('energy-bar-supercharged');
+      } else {
+        energyBar.classList.remove('energy-bar-supercharged');
+      }
+    }
 
+    // Hiển thị phần trăm (cho phép hiển thị + trên 100%)
+    if (energyPercentage) {
+      if (energy === 0) {
+        energyPercentage.innerHTML = `<span class="text-gray-400 font-bold">0%</span>`;
+      } else if (energy <= 100) {
+        energyPercentage.innerHTML = `<span class="text-pink-600 font-bold">${energy}%</span>`;
+      } else {
+        energyPercentage.innerHTML = `<span class="text-rose-600 font-extrabold animate-pulse inline-flex items-center gap-1">+${energy}% <span class="text-[10px] bg-gradient-to-r from-rose-500 to-amber-500 text-white px-2 py-0.5 rounded-full font-cute shadow-sm">SIÊU CẤP 🔥</span></span>`;
+      }
+    }
+
+    // Lời động viên ấm áp theo từng mốc năng lượng
     if (energyStatusText) {
-      if (energy < 50) {
-        energyStatusText.textContent = '"Đang truyền năng lượng ấm áp từ xa cho bé Trang..."';
+      if (energy === 0) {
+        energyStatusText.textContent = '"Bé Trang ơi, cùng nạp năng lượng yêu thương từ anh để mau khỏe nhé!" 🌸';
+      } else if (energy < 50) {
+        energyStatusText.textContent = '"Đang truyền năng lượng ấm áp từ xa cho bé Trang... Bé cố lên nhé!" 💕';
       } else if (energy < 80) {
         energyStatusText.textContent = '"Sức khỏe đang hồi phục rất tốt nè, sắc mặt hồng hào hơn rồi!" 🌸';
       } else if (energy < 100) {
         energyStatusText.textContent = '"Sắp đầy 100% rồi! Sắp thành cô bé khỏe re tung tăng rồi nha!" ✨';
+      } else if (energy === 100) {
+        energyStatusText.textContent = '🎉 100% ĐẦY BÌNH! Bé Thu Trang đã nạp trọn vẹn 100% tình yêu và sức đề kháng! 💖';
+      } else if (energy <= 200) {
+        energyStatusText.textContent = `🚀 NĂNG LƯỢNG SIÊU CẤP (+${energy}%)! Tình yêu của anh sạc tràn bình, vi khuẩn cúm chạy mất dép rồi bé Trang ơi! ⚡👑`;
       } else {
-        energyStatusText.textContent = '🎉 100% SỨC KHỎE & TÌNH YÊU! Bé Thu Trang đã sẵn sàng khỏe khoắn rực rỡ!';
+        energyStatusText.textContent = `🌟 SIÊU NĂNG LƯỢNG VŨ TRỤ VÔ CỰC (+${energy}%)! Bé Thu Trang trở thành cô gái mạnh mẽ và hạnh phúc nhất quả đất! 🪐💖✨`;
       }
     }
-
-    localStorage.setItem('thu_trang_energy', energy.toString());
   }
 
   updateEnergyUI();
@@ -895,26 +927,38 @@ document.addEventListener('DOMContentLoaded', () => {
   if (chargeBtn) {
     chargeBtn.addEventListener('click', () => {
       playPop(520);
-      playChime(Math.floor(energy / 20));
+      playChime(Math.floor((energy % 100) / 20));
 
       const rect = chargeBtn.getBoundingClientRect();
       const x = rect.left + rect.width / 2;
       const y = rect.top;
 
       const aff = energyAffirmations[Math.floor(Math.random() * energyAffirmations.length)];
-      spawnFloatingReaction(x, y, aff);
+      const textToSpawn = energy >= 100 ? `+15% NĂNG LƯỢNG SIÊU CẤP! (+${energy + 15}%) 🚀` : aff;
+      spawnFloatingReaction(x, y, textToSpawn);
 
-      if (energy < 100) {
-        energy += 15;
-        if (energy > 100) energy = 100;
-        updateEnergyUI();
+      const prevEnergy = energy;
+      energy += 15;
+      updateEnergyUI();
 
-        if (energy === 100) {
+      if (prevEnergy < 100 && energy >= 100) {
+        triggerCelebration();
+      } else if (energy > 100) {
+        triggerHeartShower();
+        if (energy % 60 === 0 || energy === 115) {
           triggerCelebration();
         }
-      } else {
-        triggerHeartShower();
       }
+    });
+  }
+
+  if (resetEnergyBtn) {
+    resetEnergyBtn.addEventListener('click', () => {
+      energy = 0;
+      updateEnergyUI();
+      playPop(350);
+      const rect = resetEnergyBtn.getBoundingClientRect();
+      spawnFloatingReaction(rect.left + rect.width / 2, rect.top - 10, 'Đã đặt lại 0%! Nạp lại nào! 🔄');
     });
   }
 
@@ -1060,24 +1104,27 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // ==========================================
-  // 7. FEATURE 3: DẶN DÒ CHECKLIST
+  // 7. FEATURE 3: DẶN DÒ CỦA BÁC SĨ ĐÁNG YÊU (CHECKLIST)
+  // Luôn đặt lại về 0/6 việc khi tải/refresh trang theo yêu cầu
   // ==========================================
   const checkboxes = document.querySelectorAll('.todo-checkbox');
   const checkCounter = document.getElementById('check-counter');
   const checklistReward = document.getElementById('checklist-reward');
+  const resetChecklistBtn = document.getElementById('reset-checklist-btn');
 
-  const savedChecks = JSON.parse(localStorage.getItem('thu_trang_checklist') || '[]');
+  // Đặt lại tất cả việc dặn dò về 0 khi refresh trang
+  try {
+    localStorage.removeItem('thu_trang_checklist');
+  } catch (e) {}
 
   checkboxes.forEach((cb, idx) => {
-    if (savedChecks.includes(idx)) {
-      cb.checked = true;
-    }
+    cb.checked = false;
 
     cb.addEventListener('change', () => {
       if (cb.checked) {
         playChime(idx);
         const rect = cb.closest('label').getBoundingClientRect();
-        spawnFloatingReaction(rect.left + 50, rect.top, 'Bé Trang giỏi quá! ⭐');
+        spawnFloatingReaction(rect.left + 50, rect.top, 'Bác sĩ khen: Bé Trang giỏi quá! ⭐');
       } else {
         playPop(300);
       }
@@ -1091,7 +1138,6 @@ document.addEventListener('DOMContentLoaded', () => {
       if (cb.checked) checkedIndices.push(idx);
     });
 
-    localStorage.setItem('thu_trang_checklist', JSON.stringify(checkedIndices));
     if (checkCounter) checkCounter.textContent = `${checkedIndices.length}/6 việc`;
 
     if (checkedIndices.length === 6) {
@@ -1100,6 +1146,18 @@ document.addEventListener('DOMContentLoaded', () => {
     } else {
       if (checklistReward) checklistReward.classList.add('hidden');
     }
+  }
+
+  if (resetChecklistBtn) {
+    resetChecklistBtn.addEventListener('click', () => {
+      checkboxes.forEach(cb => {
+        cb.checked = false;
+      });
+      saveAndCountChecklist();
+      playPop(350);
+      const rect = resetChecklistBtn.getBoundingClientRect();
+      spawnFloatingReaction(rect.left + rect.width / 2, rect.top - 10, 'Đã đặt lại danh sách dặn dò! 📋');
+    });
   }
 
   saveAndCountChecklist();

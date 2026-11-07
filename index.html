@@ -278,31 +278,37 @@
     <section class="w-full glass-card p-6 md:p-8 rounded-3xl shadow-xl border border-white/60 relative overflow-hidden">
       <div class="flex items-center justify-between mb-3">
         <div class="flex items-center gap-2">
-          <span class="text-2xl">⚡</span>
+          <span class="text-2xl animate-bounce-gentle">⚡</span>
           <h2 class="font-cute font-bold text-lg md:text-xl text-gray-800">
             Thanh Nạp Năng Lượng Cho Thu Trang
           </h2>
         </div>
-        <span id="energy-percentage" class="font-cute font-bold text-pink-600 text-lg">45%</span>
+        <div class="flex items-center gap-2">
+          <span id="energy-percentage" class="font-cute font-bold text-pink-600 text-lg sm:text-xl">0%</span>
+        </div>
       </div>
 
       <!-- Battery Bar Container -->
       <div class="w-full h-7 bg-pink-100/80 rounded-full p-1 relative shadow-inner overflow-hidden border border-pink-200">
-        <div id="energy-bar" class="h-full bg-gradient-to-r from-pink-400 via-rose-400 to-amber-300 rounded-full transition-all duration-500 relative flex items-center justify-end pr-2 shadow-sm" style="width: 45%;">
+        <div id="energy-bar" class="h-full bg-gradient-to-r from-pink-400 via-rose-400 to-amber-300 rounded-full transition-all duration-500 relative flex items-center justify-end pr-2 shadow-sm" style="width: 0%;">
           <div class="w-3 h-3 bg-white/70 rounded-full animate-ping"></div>
         </div>
       </div>
 
       <p id="energy-status-text" class="text-xs md:text-sm text-gray-500 text-center mt-2.5 font-medium italic">
-        "Đang truyền năng lượng ấm áp từ xa..."
+        "Bé Trang ơi, cùng nạp năng lượng yêu thương từ anh để mau khỏe nhé!" 🌸
       </p>
 
       <!-- Action Button -->
-      <div class="mt-5 flex flex-col sm:flex-row items-center justify-center gap-3">
+      <div class="mt-5 flex flex-wrap items-center justify-center gap-3">
         <button id="charge-btn" class="w-full sm:w-auto px-6 py-3.5 bg-gradient-to-r from-pink-500 via-rose-500 to-pink-600 hover:from-pink-600 hover:to-rose-600 text-white font-cute font-bold text-base rounded-2xl shadow-lg shadow-pink-500/30 transform hover:-translate-y-0.5 active:translate-y-0 active:scale-95 transition-all flex items-center justify-center gap-2">
           <span>💖</span>
           <span>Bấm để sạc thêm năng lượng (+15%)</span>
           <span>✨</span>
+        </button>
+        <button id="reset-energy-btn" class="px-4 py-3 bg-white/85 hover:bg-pink-50 text-gray-500 hover:text-pink-600 font-cute font-semibold text-xs sm:text-sm rounded-2xl border border-pink-200 transition-all flex items-center gap-1.5 shadow-sm active:scale-95" title="Đặt lại thanh năng lượng về 0%">
+          <span>🔄</span>
+          <span>Đặt lại 0%</span>
         </button>
       </div>
     </section>
@@ -421,19 +427,24 @@
       </div>
     </section>
 
-    <!-- FEATURE 3: DẶN DÒ CỦA ANH (CHECKLIST) -->
+    <!-- FEATURE 3: DẶN DÒ CỦA BÁC SĨ ĐÁNG YÊU (CHECKLIST) -->
     <section class="w-full glass-card p-6 md:p-8 rounded-3xl shadow-xl border border-white/60">
       <div class="flex items-center justify-between mb-4">
         <div>
           <h2 class="font-cute font-bold text-xl md:text-2xl text-gray-800 flex items-center gap-2">
-            <span>📋</span> Dặn Dò Của Bác Sĩ Người Yêu
+            <span>🩺</span> Dặn Dò Của Bác Sĩ Đáng Yêu
           </h2>
           <p class="text-xs md:text-sm text-gray-500 mt-1">
             Bé Trang nhớ hoàn thành từng việc nhỏ này để mau khỏi nha!
           </p>
         </div>
-        <div id="check-counter" class="text-sm font-cute font-bold text-pink-600 bg-pink-100 px-3 py-1 rounded-full">
-          0/6 việc
+        <div class="flex items-center gap-2">
+          <div id="check-counter" class="text-sm font-cute font-bold text-pink-600 bg-pink-100 px-3 py-1 rounded-full">
+            0/6 việc
+          </div>
+          <button id="reset-checklist-btn" class="p-1.5 bg-pink-50 hover:bg-pink-100 text-pink-500 rounded-full text-xs transition-colors" title="Đặt lại dặn dò về ban đầu">
+            🔄
+          </button>
         </div>
       </div>
 

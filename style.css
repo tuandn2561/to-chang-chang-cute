@@ -178,6 +178,25 @@ body.night-mode #envelope-letter {
   color: #e2e8f0 !important;
 }
 
+/* Energy Bar Supercharged (> 100%) - Rainbow Cosmic Aura */
+.energy-bar-supercharged {
+  background: linear-gradient(90deg, #ff007f, #ff758f, #7928ca, #0070f3, #00dfd8, #ffb703, #ff007f) !important;
+  background-size: 300% 300% !important;
+  animation: superchargeGradient 2.5s ease infinite, superchargePulse 1.2s ease-in-out infinite alternate !important;
+  box-shadow: 0 0 15px rgba(255, 0, 127, 0.7), 0 0 25px rgba(255, 183, 3, 0.5) !important;
+}
+
+@keyframes superchargeGradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes superchargePulse {
+  0% { filter: brightness(1); }
+  100% { filter: brightness(1.25); }
+}
+
 /* Custom Styles & Cute Animations */
 
 @keyframes floatSlow {
