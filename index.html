@@ -5,6 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   <title>Gửi Thu Trang Bé Bỏng Mau Khỏe Nhé 💖</title>
   
+  <!-- Meta tags for rich preview on Zalo, Messenger, Facebook -->
+  <meta name="description" content="Trạm nạp năng lượng yêu thương và nụ hôn ấm áp dành riêng cho bé Thu Trang mau khỏi ốm! 🌸" />
+  <meta property="og:title" content="Gửi Thu Trang Bé Bỏng Mau Khỏe Nhé 💖" />
+  <meta property="og:description" content="Trạm nạp năng lượng yêu thương, nụ hôn và phép màu dành riêng cho cô gái của anh! 🌸" />
+  <meta property="og:type" content="website" />
+  <meta name="theme-color" content="#ffe5ec" />
+  
   <!-- Favicon cute -->
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌸</text></svg>">
 
@@ -50,15 +57,92 @@
   <!-- Canvas background for floating particles -->
   <canvas id="bg-canvas" class="fixed inset-0 pointer-events-none z-0"></canvas>
 
-  <!-- Top Floating Music & Sound Controls -->
-  <div class="fixed top-4 right-4 z-40 flex items-center gap-2">
-    <button id="music-toggle" class="glass-pill px-3 py-2 rounded-full text-xs md:text-sm font-semibold flex items-center gap-1.5 shadow-md hover:scale-105 active:scale-95 transition-all bg-white/80 border border-pink-200 text-pink-600 backdrop-blur-sm" title="Bật/Tắt nhạc nhẹ">
-      <span id="music-icon">🎵</span>
-      <span id="music-text" class="hidden sm:inline">Giai điệu êm dịu</span>
-    </button>
-    <button id="sound-toggle" class="glass-pill p-2 rounded-full text-xs md:text-sm shadow-md hover:scale-105 active:scale-95 transition-all bg-white/80 border border-pink-200 text-pink-600 backdrop-blur-sm" title="Bật/Tắt âm thanh hiệu ứng">
-      <span id="sound-icon">🔊</span>
-    </button>
+  <!-- Top Floating Piano Music Player Bar -->
+  <header class="fixed top-3 left-1/2 -translate-x-1/2 z-40 w-[94%] max-w-xl transition-all duration-300">
+    <div class="glass-pill px-3.5 py-2.5 rounded-full bg-white/90 border border-pink-200/80 shadow-lg backdrop-blur-md flex items-center justify-between gap-2.5">
+      
+      <!-- Vinyl / Track info -->
+      <div class="flex items-center gap-2.5 min-w-0 flex-1 cursor-pointer" id="track-info-btn" title="Bấm để đổi bài piano">
+        <!-- Vinyl disc icon -->
+        <div id="vinyl-disc" class="w-8 h-8 rounded-full bg-gradient-to-tr from-gray-900 via-pink-900 to-gray-800 flex items-center justify-center text-xs shadow-md border-2 border-pink-300 animate-spin-slow flex-shrink-0">
+          <span class="text-pink-300">🎹</span>
+        </div>
+        
+        <!-- Track title & EQ -->
+        <div class="min-w-0 flex-1">
+          <div class="flex items-center gap-1.5">
+            <span id="player-track-name" class="font-cute font-bold text-xs sm:text-sm text-pink-600 truncate block">
+              River Flows In You - Yiruma
+            </span>
+            <span class="text-[10px] text-pink-400 font-semibold px-1.5 py-0.2 bg-pink-50 rounded-full border border-pink-100 hidden sm:inline">Piano</span>
+          </div>
+          <div class="flex items-center gap-1.5 mt-0.5">
+            <!-- Animated equalizer bars -->
+            <div id="eq-container" class="flex items-end gap-0.5 h-3">
+              <span class="eq-bar h-2"></span>
+              <span class="eq-bar h-3"></span>
+              <span class="eq-bar h-1"></span>
+              <span class="eq-bar h-2.5"></span>
+            </div>
+            <span id="player-status-text" class="text-[10px] text-gray-500 font-medium truncate">
+              Tự động phát piano nhẹ nhàng...
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Player Action Controls -->
+      <div class="flex items-center gap-1 sm:gap-1.5 flex-shrink-0">
+        <!-- Prev Track -->
+        <button id="prev-track-btn" class="p-1.5 hover:bg-pink-100 rounded-full text-pink-600 text-xs sm:text-sm transition-colors" title="Bài trước">
+          ⏮️
+        </button>
+
+        <!-- Play/Pause Button -->
+        <button id="play-pause-btn" class="w-8 h-8 rounded-full bg-gradient-to-r from-pink-500 to-rose-400 text-white flex items-center justify-center text-xs sm:text-sm shadow-md hover:scale-105 active:scale-95 transition-all" title="Phát / Tạm dừng">
+          <span id="play-pause-icon">⏸️</span>
+        </button>
+
+        <!-- Next Track -->
+        <button id="next-track-btn" class="p-1.5 hover:bg-pink-100 rounded-full text-pink-600 text-xs sm:text-sm transition-colors" title="Bài tiếp">
+          ⏭️
+        </button>
+
+        <!-- Playlist selector button -->
+        <button id="playlist-btn" class="p-1.5 hover:bg-pink-100 rounded-full text-pink-600 text-xs sm:text-sm transition-colors" title="Chọn bài">
+          📑
+        </button>
+
+        <!-- SFX Mute/Unmute -->
+        <button id="sound-toggle" class="p-1.5 hover:bg-pink-100 rounded-full text-pink-600 text-xs sm:text-sm transition-colors" title="Bật/Tắt âm thanh hiệu ứng">
+          <span id="sound-icon">🔊</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Autoplay notice popup (Disappears automatically after first touch/play) -->
+    <div id="autoplay-banner" class="mt-1.5 mx-auto text-center px-4 py-1.5 rounded-full bg-gradient-to-r from-pink-500 via-rose-400 to-amber-400 text-white font-cute text-xs shadow-md animate-bounce-gentle transition-opacity duration-500 flex items-center justify-center gap-1.5 cursor-pointer">
+      <span>✨</span>
+      <span>Chạm nhẹ vào màn hình để bắt đầu nghe nhạc piano dịu êm vỗ về em nhé!</span>
+      <span>🎹</span>
+    </div>
+  </header>
+
+  <!-- Playlist Modal (Choose Piano Piece) -->
+  <div id="playlist-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/40 backdrop-blur-sm opacity-0 pointer-events-none transition-opacity duration-300">
+    <div class="modal-card bg-white rounded-3xl p-5 md:p-6 max-w-sm w-full shadow-2xl border border-pink-100 transform scale-90 transition-transform duration-300">
+      <div class="flex items-center justify-between border-b border-pink-100 pb-3 mb-3">
+        <div class="flex items-center gap-2">
+          <span class="text-2xl">🎹</span>
+          <h3 class="font-cute font-bold text-base md:text-lg text-pink-600">Tuyển Tập Piano Dịu Êm</h3>
+        </div>
+        <button id="close-playlist-btn" class="text-gray-400 hover:text-pink-600 font-bold p-1">✕</button>
+      </div>
+
+      <div class="space-y-2" id="playlist-items-container">
+        <!-- Rendered by JS -->
+      </div>
+    </div>
   </div>
 
   <!-- Decorative Clouds -->
@@ -424,6 +508,80 @@
       </div>
     </section>
 
+    <!-- NEW FEATURE: BÁO CÁO SỨC KHỎE NHANH CHO ANH (MOOD CHECK) -->
+    <section class="w-full glass-card p-6 md:p-8 rounded-3xl shadow-xl border border-white/60">
+      <div class="text-center mb-5">
+        <div class="inline-block px-3 py-1 bg-pink-100 text-pink-600 rounded-full text-xs font-cute font-bold mb-2">
+          Hôm nay em thấy trong người thế nào? 💕
+        </div>
+        <h2 class="font-cute font-bold text-xl md:text-2xl text-gray-800">
+          Nhật Ký Cảm Xúc & Sức Khỏe Của Trang
+        </h2>
+        <p class="text-xs text-gray-500 mt-1">
+          Chạm vào cảm giác hiện tại của em để nhận lời dặn dò riêng từ anh nhé:
+        </p>
+      </div>
+
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-2.5 sm:gap-3">
+        <button class="mood-btn p-3 rounded-2xl bg-white/80 hover:bg-pink-50 border border-pink-100 flex flex-col items-center gap-1.5 transition-all hover:scale-105 active:scale-95 shadow-sm" data-mood="sick">
+          <span class="text-3xl">🤒</span>
+          <span class="text-xs font-cute font-bold text-gray-700">Còn hơi mệt</span>
+        </button>
+
+        <button class="mood-btn p-3 rounded-2xl bg-white/80 hover:bg-amber-50 border border-amber-100 flex flex-col items-center gap-1.5 transition-all hover:scale-105 active:scale-95 shadow-sm" data-mood="throat">
+          <span class="text-3xl">🍵</span>
+          <span class="text-xs font-cute font-bold text-gray-700">Họng còn rát</span>
+        </button>
+
+        <button class="mood-btn p-3 rounded-2xl bg-white/80 hover:bg-emerald-50 border border-emerald-100 flex flex-col items-center gap-1.5 transition-all hover:scale-105 active:scale-95 shadow-sm" data-mood="better">
+          <span class="text-3xl">😊</span>
+          <span class="text-xs font-cute font-bold text-gray-700">Đỡ nhiều rồi</span>
+        </button>
+
+        <button class="mood-btn p-3 rounded-2xl bg-white/80 hover:bg-purple-50 border border-purple-100 flex flex-col items-center gap-1.5 transition-all hover:scale-105 active:scale-95 shadow-sm" data-mood="happy">
+          <span class="text-3xl">🥳</span>
+          <span class="text-xs font-cute font-bold text-gray-700">Khỏe re tung tăng</span>
+        </button>
+      </div>
+
+      <!-- Mood Response Card (Dynamic) -->
+      <div id="mood-response-box" class="mt-4 p-4 rounded-2xl bg-white/90 border border-pink-100 hidden animate-slide-up text-center">
+        <p id="mood-response-text" class="text-xs sm:text-sm text-pink-700 font-medium leading-relaxed"></p>
+        <button id="copy-msg-btn" class="mt-3 px-4 py-2 bg-gradient-to-r from-pink-400 to-rose-400 text-white rounded-xl text-xs font-cute font-bold shadow-sm hover:scale-105 active:scale-95 transition-all inline-flex items-center gap-1.5">
+          <span>📋 Sao chép tin nhắn báo cho anh</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- NEW FEATURE: VÒNG QUAY MÓN NGON BỒI BỔ (LUCKY MEAL) -->
+    <section class="w-full glass-card p-6 md:p-8 rounded-3xl shadow-xl border border-white/60 text-center">
+      <div class="inline-block px-3 py-1 bg-amber-100 text-amber-700 rounded-full text-xs font-cute font-bold mb-2">
+        Hôm nay bé Trang ăn gì cho ấm bụng? 🍲
+      </div>
+      <h2 class="font-cute font-bold text-xl md:text-2xl text-gray-800 mb-1">
+        Menu Bồi Bổ Đặc Biệt Của Anh
+      </h2>
+      <p class="text-xs text-gray-500 mb-4">
+        Nếu em chưa biết ăn gì, bấm vào nút để chiếc máy chọn món ngon giải cảm cho em nhé!
+      </p>
+
+      <div class="relative max-w-sm mx-auto bg-white/90 p-5 rounded-2xl border border-pink-100 shadow-inner mb-4">
+        <div id="food-icon" class="text-5xl mb-2 transition-transform duration-300">🍲</div>
+        <h3 id="food-name" class="font-cute font-bold text-base md:text-lg text-pink-600">
+          Cháo Gà Hạt Sen Nóng Hổi
+        </h3>
+        <p id="food-desc" class="text-xs text-gray-600 mt-1 italic">
+          "Thơm lừng, giải cảm siêu tốc, ăn từng thìa nhỏ ấm bụng nha bé Trang!"
+        </p>
+      </div>
+
+      <button id="spin-food-btn" class="px-6 py-3 bg-gradient-to-r from-amber-400 via-rose-400 to-pink-500 text-white font-cute font-bold text-sm rounded-2xl shadow-md hover:shadow-lg hover:scale-105 active:scale-95 transition-all inline-flex items-center gap-2">
+        <span>🎲</span>
+        <span>Chọn món khác cho em</span>
+        <span>✨</span>
+      </button>
+    </section>
+
     <!-- FEATURE 4: NÚT BẤM GỬI CÁI ÔM & NỤ HÔN (INTERACTIVE CLICKER) -->
     <section class="w-full text-center py-4">
       <div class="glass-card p-6 md:p-8 rounded-3xl shadow-xl border border-white/60 relative overflow-hidden flex flex-col items-center">
@@ -572,3 +730,4 @@
   <script src="script.js"></script>
 </body>
 </html>
+
