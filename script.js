@@ -1228,19 +1228,193 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // ==========================================
+  // 8b. TRÒ CHƠI MINI: ĐẬP TAN VI KHUẨN CÚM (WHACK-A-VIRUS)
+  // ==========================================
+  let gameScore = 0;
+  let gameActive = false;
+  let gameVirusTimer = null;
+  let currentActiveHole = -1;
+
+  const gameScoreEl = document.getElementById('game-score');
+  const gameProgressBar = document.getElementById('game-progress-bar');
+  const gameStatusLabel = document.getElementById('game-status-label');
+  const startGameBtn = document.getElementById('start-game-btn');
+  const resetGameBtn = document.getElementById('reset-game-btn');
+  const gameVictoryBanner = document.getElementById('game-victory-banner');
+  const gameHoles = document.querySelectorAll('.game-hole');
+
+  const virusPopEmojis = ['👾', '🦠', '🤧', '🤒'];
+  const virusHitCheerTexts = [
+    '💥 Bay màu vi khuẩn!',
+    '✨ +15 Đề kháng!',
+    '💖 Bụp vi khuẩn cúm!',
+    '🛡️ Sắp khỏe re rồi!',
+    '⭐ Sếp giỏi quá!'
+  ];
+
+  function updateGameUI() {
+    if (gameScoreEl) gameScoreEl.textContent = gameScore;
+    if (gameProgressBar) {
+      gameProgressBar.style.width = `${Math.min(100, gameScore)}%`;
+    }
+  }
+
+  function hideAllViruses() {
+    gameHoles.forEach(hole => {
+      const actor = hole.querySelector('.virus-actor');
+      if (actor) {
+        actor.classList.remove('translate-y-0', 'pointer-events-auto', 'popped');
+        actor.classList.add('translate-y-24', 'pointer-events-none');
+      }
+    });
+  }
+
+  function stopGame() {
+    gameActive = false;
+    if (gameVirusTimer) clearTimeout(gameVirusTimer);
+    hideAllViruses();
+    currentActiveHole = -1;
+  }
+
+  function popVirus() {
+    if (!gameActive) return;
+
+    hideAllViruses();
+
+    let nextHole;
+    do {
+      nextHole = Math.floor(Math.random() * gameHoles.length);
+    } while (nextHole === currentActiveHole && gameHoles.length > 1);
+
+    currentActiveHole = nextHole;
+    const hole = gameHoles[nextHole];
+    if (!hole) return;
+
+    const actor = hole.querySelector('.virus-actor');
+    const emojiEl = hole.querySelector('.virus-emoji');
+    if (!actor) return;
+
+    if (emojiEl) {
+      emojiEl.textContent = virusPopEmojis[Math.floor(Math.random() * virusPopEmojis.length)];
+    }
+
+    actor.classList.remove('translate-y-24', 'pointer-events-none', 'popped');
+    actor.classList.add('translate-y-0', 'pointer-events-auto');
+
+    gameVirusTimer = setTimeout(() => {
+      if (!gameActive) return;
+      actor.classList.remove('translate-y-0', 'pointer-events-auto');
+      actor.classList.add('translate-y-24', 'pointer-events-none');
+      gameVirusTimer = setTimeout(popVirus, 350 + Math.random() * 250);
+    }, 1600);
+  }
+
+  function startMiniGame() {
+    stopGame();
+    gameScore = 0;
+    updateGameUI();
+    gameActive = true;
+
+    if (gameStatusLabel) {
+      gameStatusLabel.textContent = 'Đang diễn ra 🔥';
+      gameStatusLabel.className = 'text-rose-600 font-bold animate-pulse';
+    }
+    if (gameVictoryBanner) gameVictoryBanner.classList.add('hidden');
+    if (startGameBtn) {
+      startGameBtn.innerHTML = '<span>⚡</span><span>Đang chiến đấu...</span>';
+    }
+
+    playChime(3);
+    setTimeout(popVirus, 400);
+  }
+
+  function winMiniGame() {
+    stopGame();
+    if (gameStatusLabel) {
+      gameStatusLabel.textContent = 'Chiến thắng! 🏆';
+      gameStatusLabel.className = 'text-emerald-600 font-extrabold';
+    }
+    if (startGameBtn) {
+      startGameBtn.innerHTML = '<span>🎉</span><span>Chơi lại ván nữa</span>';
+    }
+    if (gameVictoryBanner) {
+      gameVictoryBanner.classList.remove('hidden');
+    }
+
+    playChime(5);
+    if (typeof confetti === 'function') {
+      confetti({
+        particleCount: 50,
+        spread: 80,
+        origin: { y: 0.6 },
+        colors: ['#a855f7', '#ec4899', '#10b981', '#f59e0b']
+      });
+    }
+  }
+
+  gameHoles.forEach((hole) => {
+    const actor = hole.querySelector('.virus-actor');
+    if (!actor) return;
+
+    const hitVirus = (e) => {
+      if (!gameActive) return;
+      if (!actor.classList.contains('pointer-events-auto')) return;
+
+      e.stopPropagation();
+      actor.classList.remove('pointer-events-auto');
+      actor.classList.add('pointer-events-none', 'popped');
+
+      playPop(750 + Math.random() * 150);
+
+      const rect = actor.getBoundingClientRect();
+      const x = rect.left + rect.width / 2;
+      const y = rect.top;
+
+      const cheer = virusHitCheerTexts[Math.floor(Math.random() * virusHitCheerTexts.length)];
+      spawnFloatingReaction(x, y, cheer);
+
+      gameScore = Math.min(100, gameScore + 15);
+      updateGameUI();
+
+      if (gameVirusTimer) clearTimeout(gameVirusTimer);
+
+      if (gameScore >= 100) {
+        winMiniGame();
+      } else {
+        gameVirusTimer = setTimeout(popVirus, 380);
+      }
+    };
+
+    actor.addEventListener('click', hitVirus);
+    actor.addEventListener('touchstart', hitVirus, { passive: true });
+  });
+
+  if (startGameBtn) {
+    startGameBtn.addEventListener('click', startMiniGame);
+  }
+
+  if (resetGameBtn) {
+    resetGameBtn.addEventListener('click', () => {
+      stopGame();
+      gameScore = 0;
+      updateGameUI();
+      if (gameStatusLabel) {
+        gameStatusLabel.textContent = 'Chưa bắt đầu';
+        gameStatusLabel.className = 'text-pink-600 font-semibold';
+      }
+      if (startGameBtn) {
+        startGameBtn.innerHTML = '<span>🎮</span><span>Bắt đầu đập vi khuẩn</span><span>⚡</span>';
+      }
+      if (gameVictoryBanner) gameVictoryBanner.classList.add('hidden');
+      playPop(450);
+    });
+  }
+
+  // ==========================================
   // 9. VÒNG QUAY MÓN NGON BỒI BỔ
+  // Món Anh Thơm Má & Món Anh Hôn Môi được xếp ở phía sau
   // ==========================================
   const recoveryFoods = [
-    {
-      icon: '🥰',
-      name: 'Món Anh Thơm Má (Combo 100 Cái Chụt Chụt)',
-      desc: '"Đặc sản độc quyền: Anh thơm chụt chụt lên đôi má bánh bao của Trang cho đến khi em cười tít mắt mới thôi! 💋"'
-    },
-    {
-      icon: '👩‍❤️‍💋‍👨',
-      name: 'Món Anh Hôn Môi Say Đắm',
-      desc: '"Món tráng miệng ngọt ngào hơn mật ong: Nụ hôn ngọt ngào truyền trọn 100% đề kháng và năng lượng ấm áp cho bé Trang! 💖"'
-    },
     {
       icon: '🍲',
       name: 'Cháo Gà Hạt Sen Nóng Hổi',
@@ -1270,6 +1444,16 @@ document.addEventListener('DOMContentLoaded', () => {
       icon: '🍎',
       name: 'Đĩa Táo & Lê Cắt Lựu Mát Lành',
       desc: '"Mọng nước, giòn ngọt tự nhiên, vừa ăn vừa xem phim thư giãn nha em!"'
+    },
+    {
+      icon: '🥰',
+      name: 'Món Anh Thơm Má (Combo 100 Cái Chụt Chụt)',
+      desc: '"Đặc sản độc quyền: Anh thơm chụt chụt lên đôi má bánh bao của Trang cho đến khi em cười tít mắt mới thôi! 💋"'
+    },
+    {
+      icon: '👩‍❤️‍💋‍👨',
+      name: 'Món Anh Hôn Môi Say Đắm',
+      desc: '"Món tráng miệng ngọt ngào hơn mật ong: Nụ hôn ngọt ngào truyền trọn 100% đề kháng và năng lượng ấm áp cho bé Trang! 💖"'
     }
   ];
 

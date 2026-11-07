@@ -733,6 +733,107 @@
       </div>
     </section>
 
+    <!-- NEW FEATURE: TRÒ CHƠI MINI ĐẬP TAN VI KHUẨN CÚM -->
+    <section class="w-full glass-card p-6 md:p-8 rounded-3xl shadow-xl border border-white/60 text-center relative overflow-hidden" id="mini-game-section">
+      <div class="inline-block px-3 py-1 bg-purple-100 text-purple-700 rounded-full text-xs font-cute font-bold mb-2">
+        🎮 Khu Vui Chơi Mini Chữa Lành 👾
+      </div>
+      <h2 class="font-cute font-bold text-xl md:text-2xl text-gray-800 mb-1">
+        Đập Tan Vi Khuẩn Cúm
+      </h2>
+      <p class="text-xs md:text-sm text-gray-500 max-w-md mx-auto mb-4">
+        Chạm thật nhanh vào những chú vi khuẩn ngố đang lén lút xuất hiện để tống khứ cảm cúm và nạp đủ 100 điểm Đề Kháng cho Sếp Trang nhé!
+      </p>
+
+      <!-- Score & Status Header -->
+      <div class="max-w-xs mx-auto mb-3 flex items-center justify-between px-3.5 py-2 bg-white/90 rounded-2xl border border-purple-100 shadow-sm">
+        <div class="flex items-center gap-1.5 font-cute text-xs text-gray-600 font-bold">
+          <span>🛡️ Đề kháng:</span>
+          <span id="game-score" class="text-purple-600 text-sm font-extrabold">0</span>
+          <span>/ 100</span>
+        </div>
+        <div class="flex items-center gap-1.5 font-cute text-xs text-gray-500">
+          <span>Trạng thái:</span>
+          <span id="game-status-label" class="text-pink-600 font-semibold">Chưa bắt đầu</span>
+        </div>
+      </div>
+
+      <!-- Health / Progress Bar -->
+      <div class="max-w-xs mx-auto h-3.5 bg-purple-100 rounded-full p-0.5 shadow-inner border border-purple-200 mb-4 overflow-hidden">
+        <div id="game-progress-bar" class="h-full bg-gradient-to-r from-purple-400 via-pink-400 to-emerald-400 rounded-full transition-all duration-300" style="width: 0%;"></div>
+      </div>
+
+      <!-- Game Board Grid (3x2 Holes) -->
+      <div class="grid grid-cols-3 gap-3 sm:gap-4 max-w-sm sm:max-w-md mx-auto my-3" id="game-grid">
+        <!-- 6 Cloud Holes -->
+        <div class="game-hole relative h-24 sm:h-28 bg-gradient-to-b from-purple-50/70 to-pink-50/90 rounded-2xl border-2 border-dashed border-purple-200 overflow-hidden flex items-end justify-center shadow-inner select-none cursor-pointer" data-hole="0">
+          <div class="cloud-mound absolute bottom-0 inset-x-0 h-7 bg-white/95 rounded-b-2xl border-t border-purple-100 flex items-center justify-center text-[10px] text-purple-400 font-cute font-bold pointer-events-none z-10 shadow-sm">☁️ Ổ Cúm 1</div>
+          <div class="virus-actor absolute bottom-2 w-14 h-14 flex items-center justify-center cursor-pointer pointer-events-none transform translate-y-24 transition-transform duration-200 z-0">
+            <span class="virus-emoji text-4xl filter drop-shadow hover:scale-110 active:scale-90 transition-transform">👾</span>
+          </div>
+        </div>
+
+        <div class="game-hole relative h-24 sm:h-28 bg-gradient-to-b from-purple-50/70 to-pink-50/90 rounded-2xl border-2 border-dashed border-purple-200 overflow-hidden flex items-end justify-center shadow-inner select-none cursor-pointer" data-hole="1">
+          <div class="cloud-mound absolute bottom-0 inset-x-0 h-7 bg-white/95 rounded-b-2xl border-t border-purple-100 flex items-center justify-center text-[10px] text-purple-400 font-cute font-bold pointer-events-none z-10 shadow-sm">☁️ Ổ Cúm 2</div>
+          <div class="virus-actor absolute bottom-2 w-14 h-14 flex items-center justify-center cursor-pointer pointer-events-none transform translate-y-24 transition-transform duration-200 z-0">
+            <span class="virus-emoji text-4xl filter drop-shadow hover:scale-110 active:scale-90 transition-transform">🦠</span>
+          </div>
+        </div>
+
+        <div class="game-hole relative h-24 sm:h-28 bg-gradient-to-b from-purple-50/70 to-pink-50/90 rounded-2xl border-2 border-dashed border-purple-200 overflow-hidden flex items-end justify-center shadow-inner select-none cursor-pointer" data-hole="2">
+          <div class="cloud-mound absolute bottom-0 inset-x-0 h-7 bg-white/95 rounded-b-2xl border-t border-purple-100 flex items-center justify-center text-[10px] text-purple-400 font-cute font-bold pointer-events-none z-10 shadow-sm">☁️ Ổ Cúm 3</div>
+          <div class="virus-actor absolute bottom-2 w-14 h-14 flex items-center justify-center cursor-pointer pointer-events-none transform translate-y-24 transition-transform duration-200 z-0">
+            <span class="virus-emoji text-4xl filter drop-shadow hover:scale-110 active:scale-90 transition-transform">🤧</span>
+          </div>
+        </div>
+
+        <div class="game-hole relative h-24 sm:h-28 bg-gradient-to-b from-purple-50/70 to-pink-50/90 rounded-2xl border-2 border-dashed border-purple-200 overflow-hidden flex items-end justify-center shadow-inner select-none cursor-pointer" data-hole="3">
+          <div class="cloud-mound absolute bottom-0 inset-x-0 h-7 bg-white/95 rounded-b-2xl border-t border-purple-100 flex items-center justify-center text-[10px] text-purple-400 font-cute font-bold pointer-events-none z-10 shadow-sm">☁️ Ổ Cúm 4</div>
+          <div class="virus-actor absolute bottom-2 w-14 h-14 flex items-center justify-center cursor-pointer pointer-events-none transform translate-y-24 transition-transform duration-200 z-0">
+            <span class="virus-emoji text-4xl filter drop-shadow hover:scale-110 active:scale-90 transition-transform">🤒</span>
+          </div>
+        </div>
+
+        <div class="game-hole relative h-24 sm:h-28 bg-gradient-to-b from-purple-50/70 to-pink-50/90 rounded-2xl border-2 border-dashed border-purple-200 overflow-hidden flex items-end justify-center shadow-inner select-none cursor-pointer" data-hole="4">
+          <div class="cloud-mound absolute bottom-0 inset-x-0 h-7 bg-white/95 rounded-b-2xl border-t border-purple-100 flex items-center justify-center text-[10px] text-purple-400 font-cute font-bold pointer-events-none z-10 shadow-sm">☁️ Ổ Cúm 5</div>
+          <div class="virus-actor absolute bottom-2 w-14 h-14 flex items-center justify-center cursor-pointer pointer-events-none transform translate-y-24 transition-transform duration-200 z-0">
+            <span class="virus-emoji text-4xl filter drop-shadow hover:scale-110 active:scale-90 transition-transform">👾</span>
+          </div>
+        </div>
+
+        <div class="game-hole relative h-24 sm:h-28 bg-gradient-to-b from-purple-50/70 to-pink-50/90 rounded-2xl border-2 border-dashed border-purple-200 overflow-hidden flex items-end justify-center shadow-inner select-none cursor-pointer" data-hole="5">
+          <div class="cloud-mound absolute bottom-0 inset-x-0 h-7 bg-white/95 rounded-b-2xl border-t border-purple-100 flex items-center justify-center text-[10px] text-purple-400 font-cute font-bold pointer-events-none z-10 shadow-sm">☁️ Ổ Cúm 6</div>
+          <div class="virus-actor absolute bottom-2 w-14 h-14 flex items-center justify-center cursor-pointer pointer-events-none transform translate-y-24 transition-transform duration-200 z-0">
+            <span class="virus-emoji text-4xl filter drop-shadow hover:scale-110 active:scale-90 transition-transform">🦠</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Action Buttons -->
+      <div class="mt-4 flex flex-wrap items-center justify-center gap-3">
+        <button id="start-game-btn" class="px-6 py-3 bg-gradient-to-r from-purple-500 via-pink-500 to-rose-500 hover:from-purple-600 hover:to-pink-600 text-white font-cute font-bold text-sm rounded-2xl shadow-md hover:shadow-lg hover:scale-105 active:scale-95 transition-all inline-flex items-center gap-2">
+          <span>🎮</span>
+          <span>Bắt đầu đập vi khuẩn</span>
+          <span>⚡</span>
+        </button>
+        <button id="reset-game-btn" class="px-4 py-3 bg-white/90 hover:bg-purple-50 text-gray-500 hover:text-purple-600 font-cute font-semibold text-xs rounded-2xl border border-purple-200 transition-all shadow-sm active:scale-95" title="Chơi lại từ đầu">
+          <span>🔄</span>
+          <span>Đặt lại</span>
+        </button>
+      </div>
+
+      <!-- Victory Banner (Hidden initially) -->
+      <div id="game-victory-banner" class="hidden mt-4 p-5 rounded-2xl bg-gradient-to-r from-emerald-50 via-teal-50 to-pink-50 border-2 border-emerald-300 text-center animate-slide-up shadow-lg">
+        <span class="text-4xl animate-bounce-gentle inline-block">🏆</span>
+        <h4 class="font-cute font-bold text-emerald-700 text-lg mt-1">
+          Tuyệt Vời Quá Sếp Trang Ơi!
+        </h4>
+        <p class="text-xs sm:text-sm text-gray-700 mt-1 max-w-sm mx-auto leading-relaxed font-medium">
+          Em đã tiêu diệt sạch sẽ 100% vi khuẩn cảm cúm! Đề kháng đã nạp đầy bình, chúc Sếp sớm khỏe re tung tăng nha! 🎉✨
+        </p>
+      </div>
+    </section>
+
     <!-- NEW FEATURE: VÒNG QUAY MÓN NGON BỒI BỔ (LUCKY MEAL) -->
     <section class="w-full glass-card p-6 md:p-8 rounded-3xl shadow-xl border border-white/60 text-center">
       <div class="inline-block px-3 py-1 bg-amber-100 text-amber-700 rounded-full text-xs font-cute font-bold mb-2">
@@ -746,12 +847,12 @@
       </p>
 
       <div class="relative max-w-sm mx-auto bg-white/90 p-5 rounded-2xl border border-pink-100 shadow-inner mb-4">
-        <div id="food-icon" class="text-5xl mb-2 transition-transform duration-300">🥰</div>
+        <div id="food-icon" class="text-5xl mb-2 transition-transform duration-300">🍲</div>
         <h3 id="food-name" class="font-cute font-bold text-base md:text-lg text-pink-600">
-          Món Anh Thơm Má (Combo 100 Cái Chụt Chụt)
+          Cháo Gà Hạt Sen Nóng Hổi
         </h3>
         <p id="food-desc" class="text-xs text-gray-600 mt-1 italic">
-          "Đặc sản độc quyền: Anh thơm chụt chụt lên đôi má bánh bao của Trang cho đến khi em cười tít mắt mới thôi! 💋"
+          "Thơm lừng, giải cảm siêu tốc, ăn từng thìa nhỏ ấm bụng nha bé Trang!"
         </p>
       </div>
 

@@ -46,27 +46,30 @@ Một trang web tĩnh siêu dễ thương, ấm áp và ngập tràn sự quan t
    - 6 chân cua nhỏ nhúc nhích ngộ nghĩnh bên dưới (`crabLegWiggle`).
    - Chạm vào chú cua nhỏ sẽ tung ra pháo hoa sắc màu kèm các câu thoại ngọt ngào: *"Cua nhỏ mang bó hoa to thật nhiều hoa tặng Thu Trang nè! 🦀💐"*, *"Báo cáo Sếp: Cua nhỏ đã dùng càng kẹp hết mệt mỏi quăng đi xa rồi! 🦀✨"*, *"Cua nhỏ bò ngang nhưng lòng quan tâm anh dành cho Sếp luôn đi thẳng! 🦀✨"*.
 
-6. **🍲 Vòng Quay Món Ngon Bồi Bổ (Có "Anh Thơm Má" & "Anh Hôn Môi")**:
-   - Menu đặc sản chăm sóc bạn gái ốm chu đáo độc quyền:
-     - 🥰 **Món Anh Thơm Má (Combo 100 Cái Chụt Chụt)**: Thơm chụt chụt lên đôi má bánh bao đến khi em cười tít mắt!
-     - 👩‍❤️‍💋‍👨 **Món Anh Hôn Môi Ngọt Ngào**: Nụ hôn ngọt ngào truyền 100% đề kháng và năng lượng ấm áp cho bé Trang!
-     - Kèm các món ấm bụng: cháo gà hạt sen nóng hổi, súp cua bắp non, phở bò tái lăn, nước cam mật ong, sữa hạt ấm...
-   - Quay trúng món thơm má hoặc hôn môi sẽ bắn pháo hoa trái tim hồng lãng mạn!
+6. **🎮 Trò Chơi Mini Đập Tan Vi Khuẩn Cúm (Whack-A-Virus)**:
+   - 6 ổ mây pastel dễ thương với những chú vi khuẩn ngố (`👾`, `🦠`, `🤧`, `🤒`) thò đầu lên nhấp nhô.
+   - Chạm vào từng chú vi khuẩn để "đập tan vi khuẩn", nạp ngay +15 điểm đề kháng mỗi lần đập trúng kèm hiệu ứng âm thanh pop vui nhộn và bóng thoại cổ vũ!
+   - Đạt đủ 100 điểm đề kháng sẽ mở khóa **Cúp Chiến Thắng 🏆** cùng pháo hoa rực rỡ ăn mừng Sếp Trang đã đánh bại vi khuẩn cúm!
 
-7. **🍬 Tiệm Thuốc Kẹo Ngọt Độc Quyền (Bác Sĩ Anh)**:
+7. **🍲 Vòng Quay Món Ngon Bồi Bổ (Món Thơm Má & Hôn Môi Để Phía Sau)**:
+   - Mặc định mở đầu bằng món cháo gà hạt sen nóng hổi giải cảm và các món ấm bụng dinh dưỡng (súp cua, nước cam, phở bò tái lăn, sữa hạnh nhân ấm, đĩa táo lê...).
+   - Hai món đặc biệt ngọt ngào **Món Anh Thơm Má** và **Món Anh Hôn Môi** được xếp ở **phía sau** như phần quà bất ngờ khi Sếp quay tiếp!
+   - Bắn pháo hoa trái tim khi quay trúng hai món cưng chiều đặc biệt này!
+
+8. **🍬 Tiệm Thuốc Kẹo Ngọt Độc Quyền (Bác Sĩ Anh)**:
    - 6 toa thuốc ngọt ngào đặc biệt: *Viên Xua Tan Mệt Mỏi, Bát Cháo Gà Ấm Bụng, Cốc Vitamin C Tươi, Liều Ôm 24/7 Không Giới Hạn, Gối Mây Ru Ngủ Say, và Vé Đi Ăn Thỏa Thích Khi Khỏe*.
    - Mở popup cute kèm nút "Uống ngay 💖".
 
-8. **🤒 Nhật Ký Cảm Xúc & Báo Cáo Sức Khỏe Cho Anh**:
+9. **🤒 Nhật Ký Cảm Xúc & Báo Cáo Sức Khỏe Cho Anh**:
    - 4 trạng thái nhanh: *Còn hơi mệt, Họng còn rát, Đỡ nhiều rồi, Khỏe re tung tăng*.
    - Đi kèm nút bấm **"📋 Sao chép tin nhắn báo cho anh"** để Trang dán vào Zalo/Messenger gửi cho bạn chỉ trong 1 chạm!
 
-8. **💖 Nút Bấm Gửi Ngàn Cái Ôm**:
-   - Đếm số lượng cái ôm và nụ hôn đã gửi cho Thu Trang.
-   - Hiệu ứng tim bay bổng, gợn sóng lan tỏa và lời nhắn cưng chiều.
+10. **💖 Nút Bấm Gửi Ngàn Cái Ôm**:
+    - Đếm số lượng cái ôm ấm áp đã gửi cho Thu Trang.
+    - Hiệu ứng tim bay bổng, gợn sóng lan tỏa và lời nhắn cưng chiều.
 
-9. **💌 Phong Thư Bí Mật Chân Thành**:
-   - Bức thư ấm áp với từng lời nhắn nhủ chân thành, cảm động, xoa dịu mọi mệt mỏi.
+11. **💌 Phong Thư Bí Mật Chân Thành**:
+    - Bức thư ấm áp với từng lời nhắn nhủ chân thành, cảm động, xoa dịu mọi mệt mỏi.
 
 10. **🌸 Hiệu Ứng Bầu Trời Bay Bổng & Con Trỏ Lấp Lánh**:
     - Nền canvas tự vẽ các trái tim, ngôi sao, bong bóng pastel trôi nhẹ nhàng.
