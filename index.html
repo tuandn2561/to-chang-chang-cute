@@ -178,98 +178,163 @@
         Biết em đang mệt, anh xót lắm... Nên anh gửi vào đây toàn bộ năng lượng ấm áp, nụ hôn và phép màu để cô bé của anh sớm khỏe re nha! 🥺💖
       </p>
 
-      <!-- Cute Mascot Character (Animated Doctor Bunny with Stethoscope & Heart) -->
-      <div class="relative my-6 group cursor-pointer" id="mascot-wrapper" title="Chạm vào tớ để nhận nụ hôn nè!">
-        <div class="absolute -inset-4 bg-gradient-to-r from-pink-300 via-rose-200 to-yellow-200 rounded-full blur-xl opacity-60 group-hover:opacity-100 transition duration-500 animate-pulse"></div>
+      <!-- Cute Mascot Character (Animated Puppy Dog holding giant flower bouquet for Thu Trang) -->
+      <div class="relative my-6 group cursor-pointer" id="mascot-wrapper" title="Chạm vào cún con để nhận hoa và thơm má nè!">
+        <div class="absolute -inset-4 bg-gradient-to-r from-pink-300 via-rose-200 to-amber-200 rounded-full blur-xl opacity-60 group-hover:opacity-100 transition duration-500 animate-pulse"></div>
         
-        <div class="relative w-48 h-48 md:w-56 md:h-56 mx-auto flex items-center justify-center">
-          <!-- Mascot SVG: Cute Doctor Bunny with Bandage and Heart -->
+        <div class="relative w-52 h-52 md:w-60 md:h-60 mx-auto flex items-center justify-center">
+          <!-- Mascot SVG: Cute Puppy Dog with Giant Flower Bouquet -->
           <svg viewBox="0 0 200 200" class="w-full h-full drop-shadow-lg mascot-bounce" id="mascot-svg">
             <defs>
-              <linearGradient id="bunnyGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <linearGradient id="puppyCreamGrad" x1="0%" y1="0%" x2="100%" y2="100%">
                 <stop offset="0%" stop-color="#ffffff"/>
-                <stop offset="100%" stop-color="#fff0f5"/>
+                <stop offset="100%" stop-color="#fff5eb"/>
               </linearGradient>
-              <linearGradient id="earPink" x1="0%" y1="0%" x2="0%" y2="100%">
-                <stop offset="0%" stop-color="#ffb3c6"/>
-                <stop offset="100%" stop-color="#ff8fab"/>
+              <linearGradient id="puppyEarGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#f4a261"/>
+                <stop offset="100%" stop-color="#e76f51"/>
               </linearGradient>
-              <linearGradient id="heartGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stop-color="#ff4d6d"/>
-                <stop offset="100%" stop-color="#ff758f"/>
+              <linearGradient id="bouquetWrap" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#ffe5ec"/>
+                <stop offset="100%" stop-color="#ffb3c6"/>
+              </linearGradient>
+              <linearGradient id="ribbonGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#ff0054"/>
+                <stop offset="100%" stop-color="#ff5400"/>
               </linearGradient>
             </defs>
 
-            <!-- Ears -->
-            <g id="ears">
+            <!-- Wagging Puppy Tail -->
+            <path class="puppy-tail" d="M 144 140 Q 172 128 164 110 C 156 106 146 114 140 128 Z" fill="url(#puppyEarGrad)" stroke="#d94e34" stroke-width="1.2"/>
+
+            <!-- Feet / Hind Paws with Pink Toe Beans -->
+            <g id="puppy-feet">
+              <!-- Left Foot -->
+              <ellipse cx="64" cy="174" rx="15" ry="10" fill="#ffffff" stroke="#f4a261" stroke-width="1.5"/>
+              <circle cx="64" cy="175" r="3.5" fill="#ffb3c6"/>
+              <circle cx="58" cy="171" r="1.8" fill="#ffb3c6"/>
+              <circle cx="64" cy="169" r="1.8" fill="#ffb3c6"/>
+              <circle cx="70" cy="171" r="1.8" fill="#ffb3c6"/>
+              <!-- Right Foot -->
+              <ellipse cx="136" cy="174" rx="15" ry="10" fill="#ffffff" stroke="#f4a261" stroke-width="1.5"/>
+              <circle cx="136" cy="175" r="3.5" fill="#ffb3c6"/>
+              <circle cx="130" cy="171" r="1.8" fill="#ffb3c6"/>
+              <circle cx="136" cy="169" r="1.8" fill="#ffb3c6"/>
+              <circle cx="142" cy="171" r="1.8" fill="#ffb3c6"/>
+            </g>
+
+            <!-- Puppy Body -->
+            <ellipse cx="100" cy="136" rx="46" ry="38" fill="url(#puppyCreamGrad)" stroke="#fcd5ce" stroke-width="2"/>
+
+            <!-- Puppy Head -->
+            <circle cx="100" cy="76" r="42" fill="url(#puppyCreamGrad)" stroke="#fcd5ce" stroke-width="2"/>
+
+            <!-- Floppy Puppy Ears -->
+            <g id="puppy-ears">
               <!-- Left Ear -->
-              <ellipse cx="65" cy="50" rx="16" ry="42" fill="url(#bunnyGrad)" transform="rotate(-12 65 50)" stroke="#fcd5ce" stroke-width="2"/>
-              <ellipse cx="65" cy="52" rx="9" ry="28" fill="url(#earPink)" transform="rotate(-12 65 52)"/>
-              
+              <path d="M 68 50 C 42 46 32 70 42 98 C 47 110 62 105 66 86 Z" fill="url(#puppyEarGrad)" stroke="#d94e34" stroke-width="1.5"/>
+              <path d="M 48 82 C 50 94 58 96 60 85" stroke="#ffb3c6" stroke-width="3" stroke-linecap="round" fill="none"/>
               <!-- Right Ear -->
-              <ellipse cx="135" cy="50" rx="16" ry="42" fill="url(#bunnyGrad)" transform="rotate(12 135 50)" stroke="#fcd5ce" stroke-width="2"/>
-              <ellipse cx="135" cy="52" rx="9" ry="28" fill="url(#earPink)" transform="rotate(12 135 52)"/>
+              <path d="M 132 50 C 158 46 168 70 158 98 C 153 110 138 105 134 86 Z" fill="url(#puppyEarGrad)" stroke="#d94e34" stroke-width="1.5"/>
+              <path d="M 152 82 C 150 94 142 96 140 85" stroke="#ffb3c6" stroke-width="3" stroke-linecap="round" fill="none"/>
             </g>
 
-            <!-- Nurse/Doctor Cap -->
-            <g id="nurse-cap">
-              <path d="M 80 58 Q 100 48 120 58 L 123 70 Q 100 66 77 70 Z" fill="#ffffff" stroke="#fcd5ce" stroke-width="1.5"/>
-              <rect x="96" y="58" width="8" height="2" fill="#ff4d6d" rx="1"/>
-              <rect x="99" y="55" width="2" height="8" fill="#ff4d6d" rx="1"/>
+            <!-- Eye Patch (Shiba / Beagle style) -->
+            <ellipse cx="80" cy="72" rx="15" ry="16" fill="#f4a261" opacity="0.38"/>
+
+            <!-- Cute Healing Band-Aid on Forehead -->
+            <g transform="translate(112, 52) rotate(22)">
+              <rect x="0" y="0" width="18" height="8" rx="4" fill="#ffe5d9" stroke="#f4a261" stroke-width="1"/>
+              <circle cx="9" cy="4" r="1.8" fill="#ff758f"/>
             </g>
 
-            <!-- Body -->
-            <ellipse cx="100" cy="142" rx="52" ry="44" fill="url(#bunnyGrad)" stroke="#fcd5ce" stroke-width="2"/>
-
-            <!-- Feet -->
-            <ellipse cx="70" cy="180" rx="16" ry="10" fill="#ffffff" stroke="#fcd5ce" stroke-width="1.5"/>
-            <ellipse cx="130" cy="180" rx="16" ry="10" fill="#ffffff" stroke="#fcd5ce" stroke-width="1.5"/>
-
-            <!-- Head -->
-            <circle cx="100" cy="98" r="48" fill="url(#bunnyGrad)" stroke="#fcd5ce" stroke-width="2"/>
-
-            <!-- Cute Band-Aid on forehead/cheek -->
-            <g transform="translate(62, 78) rotate(-20)">
-              <rect x="0" y="0" width="24" height="10" rx="5" fill="#ffe5d9" stroke="#f4a261" stroke-width="1"/>
-              <circle cx="12" cy="5" r="2" fill="#ff758f"/>
+            <!-- Eyes (Sparkling Blinking Anime Eyes) -->
+            <g id="eyes" class="puppy-eyes">
+              <!-- Left Eye -->
+              <ellipse cx="80" cy="73" rx="6" ry="7" fill="#2b2d42"/>
+              <circle cx="78" cy="70" r="2.3" fill="#ffffff"/>
+              <circle cx="82" cy="75" r="1.2" fill="#ffffff"/>
+              <!-- Right Eye -->
+              <ellipse cx="120" cy="73" rx="6" ry="7" fill="#2b2d42"/>
+              <circle cx="118" cy="70" r="2.3" fill="#ffffff"/>
+              <circle cx="122" cy="75" r="1.2" fill="#ffffff"/>
+              <!-- Cute Eyebrows -->
+              <ellipse cx="78" cy="62" rx="3.5" ry="2" fill="#e76f51"/>
+              <ellipse cx="122" cy="62" rx="3.5" ry="2" fill="#e76f51"/>
             </g>
 
-            <!-- Eyes (Blinking animation) -->
-            <g id="eyes" class="bunny-eyes">
-              <!-- Left Eye (Curved happy eye) -->
-              <circle cx="82" cy="95" r="5" fill="#4a4e69"/>
-              <circle cx="80" cy="93" r="1.8" fill="#ffffff"/>
-              <!-- Right Eye (Curved happy eye) -->
-              <circle cx="118" cy="95" r="5" fill="#4a4e69"/>
-              <circle cx="116" cy="93" r="1.8" fill="#ffffff"/>
-            </g>
+            <!-- Blushing Cheeks -->
+            <ellipse cx="68" cy="84" rx="8" ry="5.5" fill="#ff8fab" opacity="0.65"/>
+            <ellipse cx="132" cy="84" rx="8" ry="5.5" fill="#ff8fab" opacity="0.65"/>
 
-            <!-- Cute Blush -->
-            <ellipse cx="72" cy="106" rx="8" ry="5" fill="#ff8fab" opacity="0.6"/>
-            <ellipse cx="128" cy="106" rx="8" ry="5" fill="#ff8fab" opacity="0.6"/>
+            <!-- Nose & Smiling Mouth with Cute Tongue -->
+            <ellipse cx="100" cy="81" rx="4.5" ry="3.5" fill="#2b2d42"/>
+            <circle cx="98.5" cy="79.5" r="1.2" fill="#ffffff"/>
+            <path d="M 94 85 Q 100 89 100 85 Q 100 89 106 85" fill="none" stroke="#2b2d42" stroke-width="1.8" stroke-linecap="round"/>
+            <path d="M 97 87 C 97 94, 103 94, 103 87 Z" fill="#ff758f"/>
 
-            <!-- Nose & Mouth -->
-            <ellipse cx="100" cy="104" rx="3.5" ry="2.5" fill="#ff4d6d"/>
-            <path d="M 95 109 Q 100 113 100 106 Q 100 113 105 109" fill="none" stroke="#4a4e69" stroke-width="2" stroke-linecap="round"/>
-
-            <!-- Hands holding a giant pulsing heart -->
-            <g id="holding-heart">
-              <!-- Heart -->
-              <path class="pulsing-heart-svg" d="M 100 135 C 80 110, 60 130, 100 162 C 140 130, 120 110, 100 135 Z" fill="url(#heartGrad)" filter="drop-shadow(0px 2px 4px rgba(255,105,180,0.4))"/>
+            <!-- GIANT FLOWER BOUQUET (Bó hoa to đùng tặng bé Thu Trang) -->
+            <g id="flower-bouquet" class="bouquet-bloom">
+              <!-- Wrapping paper cone -->
+              <polygon points="66,130 134,130 100,178" fill="url(#bouquetWrap)" stroke="#f4a261" stroke-width="1.5"/>
+              <polygon points="72,132 128,132 100,172" fill="#fff0f3" opacity="0.6"/>
               
-              <!-- Mini sparkle on heart -->
-              <path d="M 90 128 L 92 133 L 97 135 L 92 137 L 90 142 L 88 137 L 83 135 L 88 133 Z" fill="#ffffff" opacity="0.8"/>
+              <!-- Big Ribbon Bow -->
+              <circle cx="100" cy="158" r="4.5" fill="#ff0054"/>
+              <path d="M 98 157 C 82 147 80 168 96 162 Z" fill="url(#ribbonGrad)" stroke="#d90429" stroke-width="0.8"/>
+              <path d="M 102 157 C 118 147 120 168 104 162 Z" fill="url(#ribbonGrad)" stroke="#d90429" stroke-width="0.8"/>
+              <path d="M 97 162 Q 91 174 86 178" stroke="#ff0054" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+              <path d="M 103 162 Q 109 174 114 178" stroke="#ff0054" stroke-width="2.5" stroke-linecap="round" fill="none"/>
 
+              <!-- Fresh Green Leaves -->
+              <path d="M 62 122 Q 48 116 54 130 Q 66 130 62 122 Z" fill="#70e000"/>
+              <path d="M 138 122 Q 152 116 146 130 Q 134 130 138 122 Z" fill="#70e000"/>
+              <path d="M 80 110 Q 74 98 80 95 Q 86 103 80 110 Z" fill="#38b000"/>
+              <path d="M 120 110 Q 126 98 120 95 Q 114 103 120 110 Z" fill="#38b000"/>
+
+              <!-- Blooming Flowers Cluster -->
+              <!-- Giant Center Red Rose -->
+              <circle cx="100" cy="120" r="13" fill="#e63946" stroke="#c1121f" stroke-width="1"/>
+              <path d="M 93 118 C 93 111 107 111 107 118 C 107 125 95 125 95 121 C 95 117 104 117 104 121" stroke="#ffccd5" stroke-width="2" fill="none" stroke-linecap="round"/>
+
+              <!-- Pink Rose Left -->
+              <circle cx="76" cy="124" r="11" fill="#ff758f" stroke="#ff4d6d" stroke-width="1"/>
+              <path d="M 72 122 C 72 117 80 117 80 122 C 80 127 74 127 74 124" stroke="#ffffff" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+
+              <!-- Pink Rose Right -->
+              <circle cx="124" cy="124" r="11" fill="#ff758f" stroke="#ff4d6d" stroke-width="1"/>
+              <path d="M 120 122 C 120 117 128 117 128 122 C 128 127 122 127 122 124" stroke="#ffffff" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+
+              <!-- Yellow Daisy Top Center -->
+              <circle cx="100" cy="104" r="9" fill="#ffb703" stroke="#fb8500" stroke-width="1"/>
+              <circle cx="100" cy="104" r="4.5" fill="#7f4f24"/>
+
+              <!-- Purple Lavender Left & Right -->
+              <circle cx="68" cy="136" r="7.5" fill="#9d4edd"/>
+              <circle cx="68" cy="136" r="2.5" fill="#ffd166"/>
+              <circle cx="132" cy="136" r="7.5" fill="#7209b7"/>
+              <circle cx="132" cy="136" r="2.5" fill="#ffd166"/>
+
+              <!-- Magic Sparkles on Bouquet -->
+              <path d="M 98 90 L 100 94 L 104 95 L 100 97 L 98 101 L 97 97 L 93 95 L 97 94 Z" fill="#ffd166"/>
+              <path d="M 64 108 L 66 111 L 69 112 L 66 114 L 64 117 L 63 114 L 60 112 L 63 111 Z" fill="#ffffff" opacity="0.9"/>
+              <path d="M 136 108 L 138 111 L 141 112 L 138 114 L 136 117 L 135 114 L 132 112 L 135 111 Z" fill="#ffffff" opacity="0.9"/>
+            </g>
+
+            <!-- Front Paws Hugging Bouquet to Present Forward -->
+            <g id="holding-bouquet">
               <!-- Left Paw -->
-              <circle cx="78" cy="138" r="9" fill="#ffffff" stroke="#fcd5ce" stroke-width="1.5"/>
+              <ellipse cx="66" cy="140" rx="9" ry="8" fill="#ffffff" stroke="#f4a261" stroke-width="1.5"/>
+              <ellipse cx="66" cy="141" rx="4" ry="3" fill="#ffb3c6"/>
               <!-- Right Paw -->
-              <circle cx="122" cy="138" r="9" fill="#ffffff" stroke="#fcd5ce" stroke-width="1.5"/>
+              <ellipse cx="134" cy="140" rx="9" ry="8" fill="#ffffff" stroke="#f4a261" stroke-width="1.5"/>
+              <ellipse cx="134" cy="141" rx="4" ry="3" fill="#ffb3c6"/>
             </g>
           </svg>
         </div>
 
-        <div class="mt-2 inline-block px-3 py-1 rounded-full bg-white/90 text-pink-500 font-cute text-xs shadow-sm border border-pink-100">
-          👉 Bấm vào em để nhận thêm nụ hôn! 💖
+        <div class="mt-2 inline-block px-3.5 py-1 rounded-full bg-white/90 text-pink-500 font-cute text-xs shadow-sm border border-pink-100">
+          👉 Chạm vào cún con để nhận hoa và thơm má! 🐶💐
         </div>
       </div>
     </section>
@@ -581,12 +646,12 @@
       </p>
 
       <div class="relative max-w-sm mx-auto bg-white/90 p-5 rounded-2xl border border-pink-100 shadow-inner mb-4">
-        <div id="food-icon" class="text-5xl mb-2 transition-transform duration-300">🍲</div>
+        <div id="food-icon" class="text-5xl mb-2 transition-transform duration-300">🥰</div>
         <h3 id="food-name" class="font-cute font-bold text-base md:text-lg text-pink-600">
-          Cháo Gà Hạt Sen Nóng Hổi
+          Món Anh Thơm Má (Combo 100 Cái Chụt Chụt)
         </h3>
         <p id="food-desc" class="text-xs text-gray-600 mt-1 italic">
-          "Thơm lừng, giải cảm siêu tốc, ăn từng thìa nhỏ ấm bụng nha bé Trang!"
+          "Đặc sản độc quyền: Anh thơm chụt chụt lên đôi má bánh bao của Trang cho đến khi em cười tít mắt mới thôi! 💋"
         </p>
       </div>
 

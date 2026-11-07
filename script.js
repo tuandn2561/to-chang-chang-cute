@@ -810,16 +810,17 @@ document.addEventListener('DOMContentLoaded', () => {
   }, { passive: true });
 
   // ==========================================
-  // 4. MASCOT EASTER EGG (Doctor Bunny)
+  // 4. MASCOT EASTER EGG (Puppy Dog Holding Giant Bouquet)
   // ==========================================
   const mascotWrapper = document.getElementById('mascot-wrapper');
   const mascotSvg = document.getElementById('mascot-svg');
-  const bunnyQuotes = [
-    'Thương Trang nhất trần đời! 💖',
-    'Ngoan uống thuốc nha bé iu! 🐰',
-    'Tặng Trang 100 nụ hôn nè! 💋',
-    'Khỏe lại mau để đi chơi nhé! 🌸',
-    'Có anh ở đây bảo vệ em rùi! ✨'
+  const puppyQuotes = [
+    'Gâu gâu! Bó hoa to đùng này anh gửi tặng bé Thu Trang nè! 🐶💐',
+    'Cún con tặng Trang 100 cái thơm má chụt chụt! 💋',
+    'Thơm môi ngọt lịm một cái cho Trang mau hết ốm nha! 👩‍❤️‍💋‍👨',
+    'Trang mau khỏe lại nhé, cún ngoan nhớ em nhiều lắm! 🌸',
+    'Tặng em cả vườn hoa thơm ngát và trái tim ấm áp của anh! 💖💐',
+    'Ngoan uống thuốc mau khỏe để anh dắt đi hẹn hò nha! 🧋✨'
   ];
 
   if (mascotWrapper) {
@@ -831,7 +832,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const x = rect.left + rect.width / 2;
       const y = rect.top + rect.height / 3;
 
-      const randomQuote = bunnyQuotes[Math.floor(Math.random() * bunnyQuotes.length)];
+      const randomQuote = puppyQuotes[Math.floor(Math.random() * puppyQuotes.length)];
       spawnFloatingReaction(x, y, randomQuote);
 
       if (mascotSvg) {
@@ -843,10 +844,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
       if (typeof confetti === 'function') {
         confetti({
-          particleCount: 15,
-          spread: 60,
+          particleCount: 25,
+          spread: 70,
           origin: { x: (e.clientX || x) / window.innerWidth, y: (e.clientY || y) / window.innerHeight },
-          colors: ['#ff8fab', '#ffc2d1', '#ffe5ec']
+          colors: ['#ff4d6d', '#ff8fab', '#ffd166', '#80ed99']
         });
       }
     });
@@ -1230,6 +1231,16 @@ document.addEventListener('DOMContentLoaded', () => {
   // ==========================================
   const recoveryFoods = [
     {
+      icon: '🥰',
+      name: 'Món Anh Thơm Má (Combo 100 Cái Chụt Chụt)',
+      desc: '"Đặc sản độc quyền: Anh thơm chụt chụt lên đôi má bánh bao của Trang cho đến khi em cười tít mắt mới thôi! 💋"'
+    },
+    {
+      icon: '👩‍❤️‍💋‍👨',
+      name: 'Món Anh Hôn Môi Say Đắm',
+      desc: '"Món tráng miệng ngọt ngào hơn mật ong: Nụ hôn nồng nàn truyền trọn 100% đề kháng và năng lượng tình yêu cho bé Trang! 💖"'
+    },
+    {
       icon: '🍲',
       name: 'Cháo Gà Hạt Sen Nóng Hổi',
       desc: '"Thơm lừng, giải cảm siêu tốc, ăn từng thìa nhỏ ấm bụng nha bé Trang!"'
@@ -1284,7 +1295,23 @@ document.addEventListener('DOMContentLoaded', () => {
       if (foodName) foodName.textContent = nextFood.name;
       if (foodDesc) foodDesc.textContent = nextFood.desc;
 
-      spawnFloatingReaction(window.innerWidth / 2, spinFoodBtn.getBoundingClientRect().top, 'Món ngon cho em nè! 🍲');
+      const btnRect = spinFoodBtn.getBoundingClientRect();
+      const spawnX = window.innerWidth / 2;
+      const spawnY = btnRect.top - 10;
+
+      if (nextFood.name.includes('Thơm Má')) {
+        spawnFloatingReaction(spawnX, spawnY, '💋 Chụt chụt! Thơm má bé Trang!');
+        if (typeof confetti === 'function') {
+          confetti({ particleCount: 25, spread: 65, colors: ['#ff4d6d', '#ff758f', '#ffe5ec'] });
+        }
+      } else if (nextFood.name.includes('Hôn Môi')) {
+        spawnFloatingReaction(spawnX, spawnY, '👩‍❤️‍💋‍👨 Hôn môi em say đắm!');
+        if (typeof confetti === 'function') {
+          confetti({ particleCount: 30, spread: 75, colors: ['#ff0054', '#ff758f', '#ffb703'] });
+        }
+      } else {
+        spawnFloatingReaction(spawnX, spawnY, 'Món ngon cho em nè! 🍲');
+      }
     });
   }
 

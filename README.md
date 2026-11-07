@@ -40,24 +40,25 @@ Một trang web tĩnh siêu dễ thương, ấm áp và ngập tràn tình yêu 
    - Kèm nút làm mới nhanh **🔄**.
    - Hoàn thành đủ 6 việc sẽ mở huy hiệu khen thưởng từ Bác sĩ Anh cùng màn mưa pháo hoa!
 
-5. **🐰 Mascot Thỏ Bác Sĩ Chibi Tương Tác**:
-   - Nhân vật hoạt hình đáng yêu cử động, nhấp nháy mắt, phát ra nụ hôn và lời nhắn ngọt ngào mỗi khi chạm vào.
+5. **🐶💐 Mascot Cún Con Cầm Bó Hoa To Đùng Tặng Bé Trang**:
+   - Chú cún con chibi siêu dễ thương với đôi tai cụp, chiếc đuôi vẫy tít mù (`wagTail`), hai mắt long lanh nhấp nháy.
+   - Ôm trọn **bó hoa tươi rực rỡ to đùng** kết nơ đỏ thắm để dâng tặng cô bé Thu Trang.
+   - Chạm vào cún con sẽ tung ra pháo hoa sắc màu kèm các câu thoại ngọt ngào: *"Gâu gâu! Bó hoa to đùng này anh gửi tặng bé Thu Trang nè! 🐶💐"*, *"Cún con tặng Trang 100 cái thơm má chụt chụt! 💋"*.
 
-6. **🍬 Tiệm Thuốc Kẹo Ngọt Độc Quyền (Bác Sĩ Người Yêu)**:
+6. **🍲 Vòng Quay Món Ngon Bồi Bổ (Có "Anh Thơm Má" & "Anh Hôn Môi")**:
+   - Menu đặc sản chăm người yêu ốm độc quyền:
+     - 🥰 **Món Anh Thơm Má (Combo 100 Cái Chụt Chụt)**: Thơm chụt chụt lên đôi má bánh bao đến khi em cười tít mắt!
+     - 👩‍❤️‍💋‍👨 **Món Anh Hôn Môi Say Đắm**: Nụ hôn nồng nàn truyền 100% đề kháng và năng lượng tình yêu cho bé Trang!
+     - Kèm các món ấm bụng: cháo gà hạt sen nóng hổi, súp cua bắp non, phở bò tái lăn, nước cam mật ong, sữa hạt ấm...
+   - Quay trúng món thơm má hoặc hôn môi sẽ bắn pháo hoa trái tim hồng lãng mạn!
+
+7. **🍬 Tiệm Thuốc Kẹo Ngọt Độc Quyền (Bác Sĩ Người Yêu)**:
    - 6 toa thuốc ngọt ngào đặc biệt: *Viên Xua Tan Mệt Mỏi, Bát Cháo Gà Ấm Bụng, Cốc Vitamin C Tươi, Liều Ôm 24/7 Không Giới Hạn, Gối Mây Ru Ngủ Say, và Vé Đi Ăn Thỏa Thích Khi Khỏe*.
    - Mở popup cute kèm nút "Uống ngay 💖".
 
-5. **📋 Bảng Dặn Dò Của Bác Sĩ Người Yêu (Checklist)**:
-   - Các nhắc nhở ân cần: uống nước ấm, uống thuốc đúng giờ, ăn đủ bữa, giữ ấm, ngủ sớm, nhắn tin cho anh.
-   - Lưu trạng thái tự động vào trình duyệt (localStorage), không bị mất khi tải lại trang.
-   - Hoàn thành đủ 6 việc sẽ mở huy hiệu *Bé Ngoan Số 1 Vũ Trụ 🏆*.
-
-6. **🤒 Nhật Ký Cảm Xúc & Báo Cáo Sức Khỏe Cho Anh**:
+8. **🤒 Nhật Ký Cảm Xúc & Báo Cáo Sức Khỏe Cho Anh**:
    - 4 trạng thái nhanh: *Còn hơi mệt, Họng còn rát, Đỡ nhiều rồi, Khỏe re tung tăng*.
    - Đi kèm nút bấm **"📋 Sao chép tin nhắn báo cho anh"** để Trang dán vào Zalo/Messenger gửi cho bạn chỉ trong 1 chạm!
-
-7. **🍲 Vòng Quay Món Ngon Bồi Bổ Cho Trang**:
-   - Quay ngẫu nhiên các món ấm bụng giải cảm: cháo gà hạt sen, súp cua bắp non, nước cam mật ong, phở bò nóng, sữa hạt ấm...
 
 8. **💖 Nút Bấm Gửi Ngàn Cái Ôm**:
    - Đếm số lượng cái ôm và nụ hôn đã gửi cho Thu Trang.
