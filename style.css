@@ -137,6 +137,47 @@
   border-color: #a8dadc transparent transparent transparent;
 }
 
+/* Night Mode / Chế Độ Đèn Ngủ Dịu Mắt Ban Đêm */
+body.night-mode {
+  background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 50%, #2e1065 100%) !important;
+  color: #f1f5f9 !important;
+}
+
+body.night-mode .glass-card {
+  background: rgba(30, 27, 75, 0.78) !important;
+  border-color: rgba(255, 255, 255, 0.15) !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4) !important;
+}
+
+body.night-mode .glass-pill {
+  background: rgba(30, 27, 75, 0.88) !important;
+  border-color: rgba(255, 255, 255, 0.2) !important;
+}
+
+body.night-mode h1,
+body.night-mode h2,
+body.night-mode h3 {
+  color: #f472b6 !important;
+}
+
+body.night-mode p,
+body.night-mode span.todo-text {
+  color: #cbd5e1 !important;
+}
+
+body.night-mode .pill-card,
+body.night-mode .mood-btn,
+body.night-mode .todo-item {
+  background: rgba(49, 46, 129, 0.6) !important;
+  border-color: rgba(255, 255, 255, 0.12) !important;
+  color: #e2e8f0 !important;
+}
+
+body.night-mode #envelope-letter {
+  background: rgba(30, 27, 75, 0.95) !important;
+  color: #e2e8f0 !important;
+}
+
 /* Custom Styles & Cute Animations */
 
 @keyframes floatSlow {

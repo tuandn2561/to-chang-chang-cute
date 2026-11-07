@@ -4,21 +4,25 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // ==========================================
   // 1. GENTLE PIANO SYNTHESIZER & MULTI-TRACK PLAYER
-  // Autoplay on open + Gentle acoustic piano modeling
+  // Single-bus audio engine, Auto-advance, No overlap
   // ==========================================
 
   let audioCtx = null;
+  let musicMasterGain = null;
+  let activePianoOscillators = [];
   let isSoundEnabled = true;
   let isPianoPlaying = false;
   let currentTrackIndex = 0;
   let trackTimer = null;
-  let activeNodes = [];
 
   function getAudioContext() {
     if (!audioCtx) {
       const AudioContext = window.AudioContext || window.webkitAudioContext;
       if (AudioContext) {
         audioCtx = new AudioContext();
+        musicMasterGain = audioCtx.createGain();
+        musicMasterGain.gain.setValueAtTime(1.0, audioCtx.currentTime);
+        musicMasterGain.connect(audioCtx.destination);
       }
     }
     if (audioCtx && audioCtx.state === 'suspended') {
@@ -35,7 +39,6 @@ document.addEventListener('DOMContentLoaded', () => {
       const midi = (octave + 1) * 12 + i;
       const freq = 440 * Math.pow(2, (midi - 69) / 12);
       noteFrequencies[`${noteNames[i]}${octave}`] = freq;
-      // Also map flats to sharps
       const flats = { 'Db': 'C#', 'Eb': 'D#', 'Gb': 'F#', 'Ab': 'G#', 'Bb': 'A#' };
       if (flats[noteNames[i]]) {
         noteFrequencies[`${flats[noteNames[i]]}${octave}`] = freq;
@@ -43,7 +46,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  // Play an acoustic grand piano note with hammer felt resonance & room warmth
+  // Play an acoustic grand piano note with felt hammer resonance & warmth
   function playPianoNote(noteStr, duration = 2.4, velocity = 0.65, delayTime = 0) {
     const ctx = getAudioContext();
     if (!ctx) return;
@@ -60,13 +63,13 @@ document.addEventListener('DOMContentLoaded', () => {
       osc1.frequency.setValueAtTime(freq, startTime);
       osc1.detune.setValueAtTime((Math.random() - 0.5) * 2.5, startTime);
 
-      // Secondary overtone string (Sine for bell-like piano clarity)
+      // Secondary overtone string (Sine for bell-like clarity)
       const osc2 = ctx.createOscillator();
       osc2.type = 'sine';
       osc2.frequency.setValueAtTime(freq * 2, startTime);
       osc2.detune.setValueAtTime((Math.random() - 0.5) * 3, startTime);
 
-      // Lowpass felt hammer filter (darker on soft notes, warmer decay)
+      // Lowpass felt hammer filter
       const filter = ctx.createBiquadFilter();
       filter.type = 'lowpass';
       const initialCutoff = Math.min(freq * 5.2, 4200);
@@ -82,145 +85,61 @@ document.addEventListener('DOMContentLoaded', () => {
       gainNode.gain.exponentialRampToValueAtTime(peakVol * 0.45, startTime + 0.25);
       gainNode.gain.exponentialRampToValueAtTime(0.0001, startTime + duration);
 
-      // Connections
+      // Connections: route through musicMasterGain
       osc1.connect(filter);
       osc2.connect(filter);
       filter.connect(gainNode);
-      gainNode.connect(ctx.destination);
+
+      if (musicMasterGain) {
+        gainNode.connect(musicMasterGain);
+      } else {
+        gainNode.connect(ctx.destination);
+      }
 
       osc1.start(startTime);
       osc2.start(startTime);
       osc1.stop(startTime + duration);
       osc2.stop(startTime + duration);
 
-      activeNodes.push({ osc1, osc2, gainNode, stopTime: startTime + duration });
+      activePianoOscillators.push(osc1, osc2);
     } catch (e) {
       console.warn(e);
     }
   }
 
-  // ==========================================
-  // SOLFEGGIO 174 HZ NATURAL HEALING DRONE
-  // (Anesthetic / Natural pain relief frequency)
-  // ==========================================
-  let drone174Gain = null;
-  let droneOsc1 = null;
-  let droneOsc2 = null;
-
-  function start174HzDrone() {
+  // Stop all currently playing and queued piano notes completely
+  function stopAllPiano() {
+    if (trackTimer) {
+      clearTimeout(trackTimer);
+      trackTimer = null;
+    }
     const ctx = getAudioContext();
-    if (!ctx) return;
-    stop174HzDrone();
-
-    try {
-      droneOsc1 = ctx.createOscillator();
-      droneOsc2 = ctx.createOscillator();
-      const droneFilter = ctx.createBiquadFilter();
-      drone174Gain = ctx.createGain();
-
-      // Pure 174.00 Hz (Solfeggio natural pain relief)
-      droneOsc1.type = 'sine';
-      droneOsc1.frequency.setValueAtTime(174.0, ctx.currentTime);
-
-      // Subtle 174.5 Hz binaural delta wave (0.5Hz deep relaxation)
-      droneOsc2.type = 'sine';
-      droneOsc2.frequency.setValueAtTime(174.5, ctx.currentTime);
-
-      droneFilter.type = 'lowpass';
-      droneFilter.frequency.setValueAtTime(380, ctx.currentTime);
-
-      // Soft, warm, soothing volume
-      drone174Gain.gain.setValueAtTime(0.0001, ctx.currentTime);
-      drone174Gain.gain.linearRampToValueAtTime(0.075, ctx.currentTime + 2.5);
-
-      droneOsc1.connect(droneFilter);
-      droneOsc2.connect(droneFilter);
-      droneFilter.connect(drone174Gain);
-      drone174Gain.connect(ctx.destination);
-
-      droneOsc1.start();
-      droneOsc2.start();
-    } catch (e) {
-      console.warn(e);
-    }
-  }
-
-  function stop174HzDrone() {
-    if (drone174Gain && audioCtx) {
+    if (musicMasterGain && ctx) {
       try {
-        drone174Gain.gain.linearRampToValueAtTime(0.0001, audioCtx.currentTime + 0.8);
-        setTimeout(() => {
-          if (droneOsc1) { droneOsc1.stop(); droneOsc1.disconnect(); droneOsc1 = null; }
-          if (droneOsc2) { droneOsc2.stop(); droneOsc2.disconnect(); droneOsc2 = null; }
-          if (drone174Gain) { drone174Gain.disconnect(); drone174Gain = null; }
-        }, 900);
+        musicMasterGain.gain.cancelScheduledValues(ctx.currentTime);
+        musicMasterGain.gain.setValueAtTime(0, ctx.currentTime);
+        musicMasterGain.gain.setValueAtTime(1.0, ctx.currentTime + 0.04);
       } catch (e) {}
     }
+    activePianoOscillators.forEach(osc => {
+      try {
+        osc.stop();
+        osc.disconnect();
+      } catch (e) {}
+    });
+    activePianoOscillators = [];
   }
 
   // ==========================================
-  // 6 GENTLE PIANO TRACK COMPOSITIONS
+  // 5 GENTLE PIANO TRACK COMPOSITIONS
   // ==========================================
   const pianoPlaylists = [
-    {
-      id: 'solfeggio-174hz',
-      title: '174Hz Giảm Đau & Chữa Lành',
-      artist: 'Solfeggio Healing Piano',
-      desc: 'Tần số 174Hz xoa dịu cơn đau, hạ sốt, thư giãn cơ thể cho bé Trang',
-      is174Hz: true,
-      tempo: 900,
-      notes: [
-        // Fmaj7 (Harmonizes with 174Hz = F3)
-        { note: 'F2', beat: 0, dur: 4.5, vel: 0.75 },
-        { note: 'C3', beat: 0.6, dur: 3.5, vel: 0.5 },
-        { note: 'F3', beat: 1.2, dur: 3.5, vel: 0.55 },
-        { note: 'A3', beat: 1.8, dur: 3.0, vel: 0.5 },
-        { note: 'C4', beat: 2.4, dur: 2.8, vel: 0.55 },
-        { note: 'E4', beat: 3.0, dur: 2.5, vel: 0.6 },
-        { note: 'A4', beat: 0, dur: 2.5, vel: 0.75 },
-        { note: 'C5', beat: 1.5, dur: 2.5, vel: 0.8 },
-        { note: 'E5', beat: 3.0, dur: 2.8, vel: 0.85 },
-
-        // Dm9 (Deep emotional warmth & soothing release)
-        { note: 'D2', beat: 4.2, dur: 4.5, vel: 0.75 },
-        { note: 'A2', beat: 4.8, dur: 3.5, vel: 0.5 },
-        { note: 'D3', beat: 5.4, dur: 3.5, vel: 0.55 },
-        { note: 'F3', beat: 6.0, dur: 3.0, vel: 0.5 },
-        { note: 'A3', beat: 6.6, dur: 2.8, vel: 0.55 },
-        { note: 'C4', beat: 7.2, dur: 2.5, vel: 0.6 },
-        { note: 'F4', beat: 4.2, dur: 2.5, vel: 0.75 },
-        { note: 'A4', beat: 5.6, dur: 2.5, vel: 0.8 },
-        { note: 'D5', beat: 7.0, dur: 2.8, vel: 0.85 },
-
-        // Bbmaj7 (Soft, peaceful embrace)
-        { note: 'Bb1', beat: 8.4, dur: 4.5, vel: 0.75 },
-        { note: 'F2', beat: 9.0, dur: 3.5, vel: 0.5 },
-        { note: 'Bb2', beat: 9.6, dur: 3.5, vel: 0.55 },
-        { note: 'D3', beat: 10.2, dur: 3.0, vel: 0.5 },
-        { note: 'F3', beat: 10.8, dur: 2.8, vel: 0.55 },
-        { note: 'A3', beat: 11.4, dur: 2.5, vel: 0.6 },
-        { note: 'D4', beat: 8.4, dur: 2.5, vel: 0.75 },
-        { note: 'F4', beat: 9.8, dur: 2.5, vel: 0.8 },
-        { note: 'A4', beat: 11.2, dur: 2.8, vel: 0.85 },
-
-        // C7sus4 -> C (Gentle resolution, peaceful breathing)
-        { note: 'C2', beat: 12.6, dur: 4.5, vel: 0.75 },
-        { note: 'G2', beat: 13.2, dur: 3.5, vel: 0.5 },
-        { note: 'C3', beat: 13.8, dur: 3.5, vel: 0.55 },
-        { note: 'F3', beat: 14.4, dur: 3.0, vel: 0.5 },
-        { note: 'G3', beat: 15.0, dur: 2.8, vel: 0.55 },
-        { note: 'B3', beat: 15.6, dur: 2.5, vel: 0.6 },
-        { note: 'E4', beat: 12.6, dur: 2.5, vel: 0.75 },
-        { note: 'G4', beat: 14.0, dur: 2.5, vel: 0.8 },
-        { note: 'C5', beat: 15.4, dur: 3.2, vel: 0.85 }
-      ]
-    },
     {
       id: 'river-flows',
       title: 'River Flows In You',
       artist: 'Yiruma',
       desc: 'Giai điệu piano ngọt ngào, dịu êm vỗ về',
-      tempo: 800, // ms per beat
+      tempo: 800,
       notes: [
         // Measure 1 (A)
         { note: 'A2', beat: 0, dur: 3.5, vel: 0.7 },
@@ -444,7 +363,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   ];
 
-  // Play a complete sequence loop
+  // Schedule notes for a track, and auto-advance to next song when finished
   function scheduleTrack(track) {
     if (!isPianoPlaying) return;
     const ctx = getAudioContext();
@@ -465,9 +384,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const totalDurationMs = (maxBeat * tempoSec + 1.2) * 1000;
 
+    // Auto-advance to the next track when finished!
     trackTimer = setTimeout(() => {
       if (isPianoPlaying) {
-        scheduleTrack(track);
+        stopAllPiano();
+        currentTrackIndex = (currentTrackIndex + 1) % pianoPlaylists.length;
+        playCurrentTrack();
       }
     }, totalDurationMs);
   }
@@ -488,6 +410,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const playlistModal = document.getElementById('playlist-modal');
   const closePlaylistBtn = document.getElementById('close-playlist-btn');
   const playlistItemsContainer = document.getElementById('playlist-items-container');
+  const nightModeToggle = document.getElementById('night-mode-toggle');
+  const nightIcon = document.getElementById('night-icon');
 
   function updatePlayerUI() {
     const track = pianoPlaylists[currentTrackIndex];
@@ -497,11 +421,7 @@ document.addEventListener('DOMContentLoaded', () => {
       if (playPauseIcon) playPauseIcon.textContent = '⏸️';
       if (vinylDisc) vinylDisc.classList.add('animate-spin-slow');
       if (eqContainer) eqContainer.classList.remove('opacity-30');
-      if (playerStatusText) {
-        playerStatusText.textContent = track.is174Hz
-          ? '🌿 Đang phát tần số 174Hz xoa dịu mệt mỏi & đau nhức...'
-          : 'Đang phát piano êm dịu...';
-      }
+      if (playerStatusText) playerStatusText.textContent = 'Tự động chuyển bài khi hết...';
     } else {
       if (playPauseIcon) playPauseIcon.textContent = '▶️';
       if (vinylDisc) vinylDisc.classList.remove('animate-spin-slow');
@@ -512,20 +432,12 @@ document.addEventListener('DOMContentLoaded', () => {
     renderPlaylistItems();
   }
 
-  function startPiano() {
-    getAudioContext();
-    if (trackTimer) clearTimeout(trackTimer);
+  // Play a track with clean stop of any previous notes
+  function playCurrentTrack() {
+    stopAllPiano();
     isPianoPlaying = true;
     updatePlayerUI();
-
-    const track = pianoPlaylists[currentTrackIndex];
-    if (track.is174Hz) {
-      start174HzDrone();
-    } else {
-      stop174HzDrone();
-    }
-
-    scheduleTrack(track);
+    scheduleTrack(pianoPlaylists[currentTrackIndex]);
 
     // Hide autoplay banner once playing
     if (autoplayBanner) {
@@ -536,10 +448,18 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
+  function startPiano() {
+    const ctx = getAudioContext();
+    if (isPianoPlaying) {
+      if (ctx && ctx.state === 'suspended') ctx.resume();
+      return;
+    }
+    playCurrentTrack();
+  }
+
   function pausePiano() {
     isPianoPlaying = false;
-    stop174HzDrone();
-    if (trackTimer) clearTimeout(trackTimer);
+    stopAllPiano();
     updatePlayerUI();
   }
 
@@ -552,14 +472,24 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function changeTrack(direction) {
-    pausePiano();
+    stopAllPiano();
     currentTrackIndex = (currentTrackIndex + direction + pianoPlaylists.length) % pianoPlaylists.length;
-    startPiano();
+    playCurrentTrack();
   }
 
   if (playPauseBtn) playPauseBtn.addEventListener('click', togglePiano);
   if (prevTrackBtn) prevTrackBtn.addEventListener('click', () => changeTrack(-1));
   if (nextTrackBtn) nextTrackBtn.addEventListener('click', () => changeTrack(1));
+
+  // Night Mode Toggle
+  if (nightModeToggle) {
+    nightModeToggle.addEventListener('click', () => {
+      document.body.classList.toggle('night-mode');
+      const isNight = document.body.classList.contains('night-mode');
+      if (nightIcon) nightIcon.textContent = isNight ? '☀️' : '🌙';
+      playPop(480);
+    });
+  }
 
   // ==========================================
   // PLAYLIST MODAL
@@ -579,9 +509,8 @@ document.addEventListener('DOMContentLoaded', () => {
       item.innerHTML = `
         <div class="min-w-0 flex-1">
           <div class="font-cute font-bold text-sm truncate flex items-center gap-1.5">
-            <span>${track.is174Hz ? '🌿' : (isCurrent ? '🎶' : '🎹')}</span>
+            <span>${isCurrent ? '🎶' : '🎹'}</span>
             <span>${track.title}</span>
-            ${track.is174Hz ? '<span class="text-[9px] bg-emerald-100 text-emerald-700 px-1.5 py-0.2 rounded-full font-bold">174Hz Giảm Đau</span>' : ''}
           </div>
           <p class="text-[11px] text-gray-500 truncate mt-0.5">${track.desc}</p>
         </div>
@@ -592,7 +521,7 @@ document.addEventListener('DOMContentLoaded', () => {
       item.addEventListener('click', () => {
         currentTrackIndex = idx;
         closePlaylist();
-        startPiano();
+        playCurrentTrack();
       });
       playlistItemsContainer.appendChild(item);
     });
@@ -628,33 +557,34 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // ==========================================
   // AUTOPLAY ON PAGE LOAD & GESTURE UNLOCK
-  // Seamlessly handles modern browser policies
+  // Seamless, single-instance audio starter
   // ==========================================
   function tryAutoplay() {
+    if (isPianoPlaying) return;
     getAudioContext();
-    // Try immediate start
     startPiano();
 
     // Check if browser blocked it
     if (audioCtx && audioCtx.state === 'suspended') {
       if (autoplayBanner) {
-        autoplayBanner.style.display = 'flex';
+        autoplayBanner.style.display = 'block';
         autoplayBanner.style.opacity = '1';
       }
     }
   }
 
-  // Attempt autoplay immediately
+  // Attempt autoplay once on load
   tryAutoplay();
-  window.addEventListener('load', tryAutoplay);
 
-  // Unconditionally unlock and start on FIRST interaction anywhere on the screen
+  // Unlock and play on FIRST user interaction anywhere on the screen
   const unlockEvents = ['click', 'touchstart', 'touchend', 'scroll', 'pointerdown', 'keydown'];
   function unlockAudioOnFirstGesture() {
+    const ctx = getAudioContext();
+    if (ctx && ctx.state === 'suspended') {
+      ctx.resume();
+    }
     if (!isPianoPlaying) {
       startPiano();
-    } else if (audioCtx && audioCtx.state === 'suspended') {
-      audioCtx.resume();
     }
     unlockEvents.forEach(evt => window.removeEventListener(evt, unlockAudioOnFirstGesture));
   }
