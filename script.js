@@ -817,10 +817,10 @@ document.addEventListener('DOMContentLoaded', () => {
   const puppyQuotes = [
     'Gâu gâu! Bó hoa to đùng này anh gửi tặng Công Chúa Thu Trang nè! 🐶💐',
     'Báo cáo Sếp Trang: Cún con tặng em 100 cái thơm má chụt chụt! 💋',
-    'Cô Nương mau khỏe lại nhé, cún cưng nhớ em nhiều lắm! 🌸',
-    'Thơm môi ngọt lịm một cái cho Công Chúa mau hết mệt nha! 👩‍❤️‍💋‍👨',
-    'Tặng Sếp cả vườn hoa thơm ngát và trái tim chung thủy của anh! 💖💐',
-    'Cô Nương ngoan uống thuốc mau khỏe để anh dắt đi hẹn hò nha! 🧋✨'
+    'Công Chúa mau khỏe lại nhé, cún cưng nhớ em nhiều lắm! 🌸',
+    'Thơm môi ngọt lịm một cái cho Sếp mau hết mệt nha! 👩‍❤️‍💋‍👨',
+    'Tặng Công Chúa cả vườn hoa thơm ngát và trái tim chung thủy của anh! 💖💐',
+    'Sếp ngoan uống thuốc mau khỏe để anh dắt đi hẹn hò nha! 🧋✨'
   ];
 
   if (mascotWrapper) {
@@ -872,10 +872,10 @@ document.addEventListener('DOMContentLoaded', () => {
   const energyAffirmations = [
     '+15% Năng Lượng Cho Công Chúa! ⚡',
     '+1 Cốc Nước Ấm Cho Sếp Trang! 🍵',
-    '+1 Nụ Hôn Trán Dịu Dàng Cho Cô Nương! 💋',
-    '+1 Lời Động Viên Ấm Lòng Công Chúa! 🌸',
-    '+1 Chiếc Ôm Thật Chặt Cho Sếp! 🧸',
-    '+1 Phép Màu Xua Cảm Cúm Cho Cô Nương! ✨',
+    '+1 Nụ Hôn Trán Dịu Dàng Cho Công Chúa! 💋',
+    '+1 Lời Động Viên Ấm Lòng Sếp! 🌸',
+    '+1 Chiếc Ôm Thật Chặt Cho Công Chúa! 🧸',
+    '+1 Phép Màu Xua Cảm Cúm Cho Sếp! ✨',
     '+15% Đề Kháng Siêu Cường Cho Công Chúa! 🛡️',
     '+15% Vitamin Hạnh Phúc Cho Sếp Trang! 🍓'
   ];
@@ -908,7 +908,7 @@ document.addEventListener('DOMContentLoaded', () => {
       if (energy === 0) {
         energyStatusText.textContent = '"Công Chúa Trang ơi, cùng nạp năng lượng yêu thương từ anh để mau khỏe nhé!" 🌸';
       } else if (energy < 50) {
-        energyStatusText.textContent = '"Đang truyền năng lượng ấm áp từ xa cho Sếp Trang... Cô Nương cố lên nhé!" 💕';
+        energyStatusText.textContent = '"Đang truyền năng lượng ấm áp từ xa cho Sếp Trang... Em cố lên nhé!" 💕';
       } else if (energy < 80) {
         energyStatusText.textContent = '"Sức khỏe của Công Chúa đang hồi phục rất tốt nè, sắc mặt hồng hào hơn rồi!" 🌸';
       } else if (energy < 100) {
@@ -918,7 +918,7 @@ document.addEventListener('DOMContentLoaded', () => {
       } else if (energy <= 200) {
         energyStatusText.textContent = `🚀 NĂNG LƯỢNG SIÊU CẤP (+${energy}%)! Tình yêu của anh sạc tràn bình, vi khuẩn cúm chạy mất dép rồi Sếp Trang ơi! ⚡👑`;
       } else {
-        energyStatusText.textContent = `🌟 SIÊU NĂNG LƯỢNG VŨ TRỤ VÔ CỰC (+${energy}%)! Cô Nương Thu Trang trở thành cô gái mạnh mẽ và hạnh phúc nhất quả đất! 🪐💖✨`;
+        energyStatusText.textContent = `🌟 SIÊU NĂNG LƯỢNG VŨ TRỤ VÔ CỰC (+${energy}%)! Công Chúa Thu Trang trở thành cô gái mạnh mẽ và hạnh phúc nhất quả đất! 🪐💖✨`;
       }
     }
   }
@@ -1168,20 +1168,20 @@ document.addEventListener('DOMContentLoaded', () => {
   // ==========================================
   const moodResponses = {
     sick: {
-      reply: 'Thương Công Chúa của anh quá! Giờ Cô Nương cứ nằm ngoan nghỉ ngơi, trùm chăn ấm và nhắm mắt lại đi nhé. Mọi chuyện cứ để anh lo hết! 💕',
+      reply: 'Thương Công Chúa của anh quá! Giờ em cứ nằm ngoan nghỉ ngơi, trùm chăn ấm và nhắm mắt lại đi nhé. Mọi chuyện cứ để anh lo hết! 💕',
       msg: 'Anh ơi, Sếp của anh vẫn còn hơi mệt một chút... Anh dỗ dành em đi! 🥺'
     },
     throat: {
-      reply: 'Họng rát khó chịu lắm đúng không Công Chúa? Sếp uống một ngụm nước ấm nhỏ xíu xiu, giữ ấm cổ họng đừng để gió lùa nha Cô Nương! 🍵',
-      msg: 'Anh ơi, cổ họng Cô Nương còn hơi rát, em đang uống nước ấm như anh dặn rồi nè! 🍵'
+      reply: 'Họng rát khó chịu lắm đúng không Công Chúa? Em nhớ uống một ngụm nước ấm nhỏ, giữ ấm cổ họng đừng để gió lùa nha! 🍵',
+      msg: 'Anh ơi, cổ họng Sếp còn hơi rát, em đang uống nước ấm như anh dặn rồi nè! 🍵'
     },
     better: {
-      reply: 'Hoan hô! Công Chúa của anh giỏi quá đi thôi! Sếp đỡ mệt rồi nhưng vẫn phải nghỉ ngơi đầy đủ, không được chủ quan đâu đấy Cô Nương! 🌸',
+      reply: 'Hoan hô! Sếp của anh giỏi quá đi thôi! Em đỡ mệt rồi nhưng vẫn phải nghỉ ngơi đầy đủ, không được chủ quan đâu đấy! 🌸',
       msg: 'Báo cáo anh: Sếp Trang đã thấy người nhẹ nhõm và đỡ mệt nhiều rồi nè! Yêu anh! 🥰'
     },
     happy: {
-      reply: 'Tuyệt vời ông mặt trời! Cô Nương Thu Trang đã hồi phục thần kỳ! Chuẩn bị tinh thần lên đồ anh dẫn Công Chúa đi ăn món em thích nhất nha! 🥳✨',
-      msg: 'Báo cáo: Sếp Trang đã khỏe khoắn trở lại rồi! Khi nào anh dẫn Cô Nương đi ăn đây ta? 🧋🎉'
+      reply: 'Tuyệt vời ông mặt trời! Công Chúa Thu Trang đã hồi phục thần kỳ! Chuẩn bị tinh thần lên đồ anh dẫn em đi ăn món em thích nhất nha! 🥳✨',
+      msg: 'Báo cáo: Sếp Trang đã khỏe khoắn trở lại rồi! Khi nào anh dẫn em đi ăn đây ta? 🧋🎉'
     }
   };
 
@@ -1330,10 +1330,10 @@ document.addEventListener('DOMContentLoaded', () => {
   const hugCheers = [
     'Ôm Công Chúa một cái thật chặt nè! 🤗',
     'Thương Sếp của anh nhiều lắm! ❤️',
-    'Thêm 1 nụ hôn má cho Cô Nương đỡ mệt! 💋',
-    'Có anh ở bên, Công Chúa yên tâm nhé! 🌸',
-    'Sếp Trang là cô gái mạnh mẽ nhất trần đời! ✨',
-    'Cô Nương khỏe lại mau để anh chiều chuộng nha! 🧋'
+    'Thêm 1 nụ hôn má cho Công Chúa đỡ mệt! 💋',
+    'Có anh ở bên, Sếp yên tâm nhé! 🌸',
+    'Công Chúa Trang là cô gái mạnh mẽ nhất trần đời! ✨',
+    'Sếp khỏe lại mau để anh chiều chuộng nha! 🧋'
   ];
 
   if (hugBtn) {
@@ -1426,7 +1426,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const jerryLines = [
       'Công Chúa Trang ơi cứu Jerry với! 🧀',
       'Sếp Trang ơi bác sĩ Tom định tiêm em! 🐭💨',
-      'Cô Nương ơi giúp Jerry trốn với!',
+      'Trang ơi giúp Jerry trốn với! 🥺',
       'Sợ tiêm lắm, không uống thuốc đắng đâuuu! 🐭',
       'Jerry muốn ăn phô mai cơ! 🧀',
       'Bác sĩ Tom tha cho em đi! 🥺'
@@ -1435,9 +1435,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const tomLines = [
       'Đứng lại uống thuốc ngoan nào Jerry! 🐱💉',
       'Uống thuốc mới mau khỏe như Sếp Trang chứ! 🩺',
-      'Không được làm ồn để Cô Nương nghỉ ngơi! 🤫',
+      'Không được làm ồn để Công Chúa nghỉ ngơi! 🤫',
       'Chỉ một thìa siro dâu ngọt thôi mà! 🍓',
-      'Uống thuốc ngoan cho Công Chúa Trang vui nào! 💖',
+      'Uống thuốc ngoan cho Sếp Trang vui nào! 💖',
       'Đừng chạy nữa, bác sĩ mệt lắm rồi! 😹'
     ];
 
