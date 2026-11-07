@@ -362,25 +362,66 @@ body.night-mode #envelope-letter {
   animation: floatSlow 4s infinite ease-in-out;
 }
 
-.bunny-eyes,
-.puppy-eyes {
+.crab-eyes {
   transform-origin: center;
   transition: transform 0.1s;
 }
 
-/* Puppy Mascot Animations */
-@keyframes wagTail {
+/* Crab Mascot Animations */
+@keyframes crabClawWiggleLeft {
   0%, 100% {
-    transform: rotate(-12deg);
+    transform: rotate(0deg);
   }
   50% {
-    transform: rotate(22deg);
+    transform: rotate(-10deg);
   }
 }
 
-.puppy-tail {
-  transform-origin: 146px 138px;
-  animation: wagTail 0.65s ease-in-out infinite;
+@keyframes crabClawWiggleRight {
+  0%, 100% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(10deg);
+  }
+}
+
+.crab-claw-left {
+  transform-origin: 36px 62px;
+  animation: crabClawWiggleLeft 2s ease-in-out infinite;
+}
+
+.crab-claw-right {
+  transform-origin: 164px 62px;
+  animation: crabClawWiggleRight 2s ease-in-out infinite;
+}
+
+@keyframes crabLegWiggleLeft {
+  0%, 100% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(5deg);
+  }
+}
+
+@keyframes crabLegWiggleRight {
+  0%, 100% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(-5deg);
+  }
+}
+
+.crab-legs-left {
+  transform-origin: 40px 125px;
+  animation: crabLegWiggleLeft 1.2s ease-in-out infinite;
+}
+
+.crab-legs-right {
+  transform-origin: 160px 125px;
+  animation: crabLegWiggleRight 1.2s ease-in-out infinite;
 }
 
 @keyframes bouquetPulse {
@@ -394,7 +435,7 @@ body.night-mode #envelope-letter {
 
 .bouquet-bloom {
   transform-origin: 100px 135px;
-  animation: bouquetPulse 2s ease-in-out infinite;
+  animation: bouquetPulse 2.2s ease-in-out infinite;
 }
 
 .pulsing-heart-svg {

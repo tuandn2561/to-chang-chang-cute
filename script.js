@@ -810,17 +810,18 @@ document.addEventListener('DOMContentLoaded', () => {
   }, { passive: true });
 
   // ==========================================
-  // 4. MASCOT EASTER EGG (Puppy Dog Holding Giant Bouquet)
+  // 4. MASCOT EASTER EGG (Cute Crab Holding Giant Multi-Flower Bouquet)
   // ==========================================
   const mascotWrapper = document.getElementById('mascot-wrapper');
   const mascotSvg = document.getElementById('mascot-svg');
-  const puppyQuotes = [
-    'Gâu gâu! Bó hoa to đùng này anh gửi tặng Công Chúa Thu Trang nè! 🐶💐',
-    'Báo cáo Sếp Trang: Cún con tặng em 100 cái thơm má chụt chụt! 💋',
-    'Công Chúa mau khỏe lại nhé, cún cưng nhớ em nhiều lắm! 🌸',
-    'Thơm môi ngọt lịm một cái cho Sếp mau hết mệt nha! 👩‍❤️‍💋‍👨',
-    'Tặng Công Chúa cả vườn hoa thơm ngát và trái tim chung thủy của anh! 💖💐',
-    'Sếp ngoan uống thuốc mau khỏe để anh dắt đi hẹn hò nha! 🧋✨'
+  const crabQuotes = [
+    'Cua nhỏ mang bó hoa to thật nhiều hoa tặng Công Chúa Thu Trang nè! 🦀💐',
+    'Báo cáo Sếp: Cua nhỏ đã dùng càng kẹp hết mệt mỏi quăng đi xa rồi! 🦀✨',
+    'Cua nhỏ thơm má Công Chúa 100 cái chụt chụt cho mau khỏe nha! 💋',
+    'Thơm môi ngọt lịm một cái cho Sếp mau hết ốm nhé! 👩‍❤️‍💋‍👨',
+    'Tặng Công Chúa cả vườn hoa rực rỡ và trái tim chung tình của anh! 💖💐',
+    'Sếp ngoan nghỉ ngơi mau khỏe để anh dắt đi hẹn hò nha! 🧋🦀',
+    'Cua nhỏ bò ngang nhưng tình yêu anh dành cho Công Chúa luôn đi thẳng! 🦀❤️'
   ];
 
   if (mascotWrapper) {
@@ -832,22 +833,22 @@ document.addEventListener('DOMContentLoaded', () => {
       const x = rect.left + rect.width / 2;
       const y = rect.top + rect.height / 3;
 
-      const randomQuote = puppyQuotes[Math.floor(Math.random() * puppyQuotes.length)];
+      const randomQuote = crabQuotes[Math.floor(Math.random() * crabQuotes.length)];
       spawnFloatingReaction(x, y, randomQuote);
 
       if (mascotSvg) {
-        mascotSvg.style.transform = 'scale(1.15) rotate(-5deg)';
+        mascotSvg.style.transform = 'scale(1.15) rotate(-4deg)';
         setTimeout(() => {
           mascotSvg.style.transform = '';
-        }, 300);
+        }, 320);
       }
 
       if (typeof confetti === 'function') {
         confetti({
-          particleCount: 25,
-          spread: 70,
+          particleCount: 28,
+          spread: 75,
           origin: { x: (e.clientX || x) / window.innerWidth, y: (e.clientY || y) / window.innerHeight },
-          colors: ['#ff4d6d', '#ff8fab', '#ffd166', '#80ed99']
+          colors: ['#ff4d6d', '#ff8fab', '#ffd166', '#80ed99', '#48cae4']
         });
       }
     });

@@ -40,10 +40,11 @@ Một trang web tĩnh siêu dễ thương, ấm áp và ngập tràn tình yêu 
    - Kèm nút làm mới nhanh **🔄**.
    - Hoàn thành đủ 6 việc sẽ mở huy hiệu khen thưởng từ Bác sĩ Anh cùng màn mưa pháo hoa!
 
-5. **🐶💐 Mascot Cún Con Cầm Bó Hoa To Đùng Tặng Bé Trang**:
-   - Chú cún con chibi siêu dễ thương với đôi tai cụp, chiếc đuôi vẫy tít mù (`wagTail`), hai mắt long lanh nhấp nháy.
-   - Ôm trọn **bó hoa tươi rực rỡ to đùng** kết nơ đỏ thắm để dâng tặng cô bé Thu Trang.
-   - Chạm vào cún con sẽ tung ra pháo hoa sắc màu kèm các câu thoại ngọt ngào: *"Gâu gâu! Bó hoa to đùng này anh gửi tặng bé Thu Trang nè! 🐶💐"*, *"Cún con tặng Trang 100 cái thơm má chụt chụt! 💋"*.
+5. **🦀💐 Mascot Chú Cua Nhỏ Cầm Bó Hoa To Đùng Có Rất Nhiều Hoa Tặng Thu Trang**:
+   - Chú cua nhỏ chibi siêu đáng yêu với đôi cuống mắt cử động, đôi mắt anime long lanh nhấp nháy, má hồng hây hây và nụ cười rạng rỡ.
+   - Hai càng to vẫy chào mừng và ôm trọn **bó hoa to đùng nở rộ ngập tràn các loài hoa**: hoa hồng đỏ nhung, mẫu đơn hồng, hoa hướng dương rực rỡ, tulip cam ấm áp, lavender tím mộng mơ, hoa lưu ly xanh biếc, hoa cúc họa mi trắng, hoa đào cùng cành lá tươi xanh và thắt nơ ruy băng satin óng ánh.
+   - 6 chân cua nhỏ nhúc nhích ngộ nghĩnh bên dưới (`crabLegWiggle`).
+   - Chạm vào chú cua nhỏ sẽ tung ra pháo hoa sắc màu kèm các câu thoại ngọt ngào: *"Cua nhỏ mang bó hoa to thật nhiều hoa tặng Công Chúa Thu Trang nè! 🦀💐"*, *"Báo cáo Sếp: Cua nhỏ đã dùng càng kẹp hết mệt mỏi quăng đi xa rồi! 🦀✨"*, *"Cua nhỏ bò ngang nhưng tình yêu anh dành cho Công Chúa luôn đi thẳng! 🦀❤️"*.
 
 6. **🍲 Vòng Quay Món Ngon Bồi Bổ (Có "Anh Thơm Má" & "Anh Hôn Môi")**:
    - Menu đặc sản chăm người yêu ốm độc quyền:
