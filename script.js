@@ -815,12 +815,12 @@ document.addEventListener('DOMContentLoaded', () => {
   const mascotWrapper = document.getElementById('mascot-wrapper');
   const mascotSvg = document.getElementById('mascot-svg');
   const puppyQuotes = [
-    'Gâu gâu! Bó hoa to đùng này anh gửi tặng bé Thu Trang nè! 🐶💐',
-    'Cún con tặng Trang 100 cái thơm má chụt chụt! 💋',
-    'Thơm môi ngọt lịm một cái cho Trang mau hết ốm nha! 👩‍❤️‍💋‍👨',
-    'Trang mau khỏe lại nhé, cún ngoan nhớ em nhiều lắm! 🌸',
-    'Tặng em cả vườn hoa thơm ngát và trái tim ấm áp của anh! 💖💐',
-    'Ngoan uống thuốc mau khỏe để anh dắt đi hẹn hò nha! 🧋✨'
+    'Gâu gâu! Bó hoa to đùng này anh gửi tặng Công Chúa Thu Trang nè! 🐶💐',
+    'Báo cáo Sếp Trang: Cún con tặng em 100 cái thơm má chụt chụt! 💋',
+    'Cô Nương mau khỏe lại nhé, cún cưng nhớ em nhiều lắm! 🌸',
+    'Thơm môi ngọt lịm một cái cho Công Chúa mau hết mệt nha! 👩‍❤️‍💋‍👨',
+    'Tặng Sếp cả vườn hoa thơm ngát và trái tim chung thủy của anh! 💖💐',
+    'Cô Nương ngoan uống thuốc mau khỏe để anh dắt đi hẹn hò nha! 🧋✨'
   ];
 
   if (mascotWrapper) {
@@ -870,14 +870,14 @@ document.addEventListener('DOMContentLoaded', () => {
   const resetEnergyBtn = document.getElementById('reset-energy-btn');
 
   const energyAffirmations = [
-    '+15% Năng Lượng Yêu Thương! ⚡',
-    '+1 Cốc Nước Ấm Ngọt Lịm! 🍵',
-    '+1 Nụ Hôn Trán Dịu Dàng! 💋',
-    '+1 Lời Động Viên Ấm Lòng! 🌸',
-    '+1 Chiếc Ôm Thật Chặt! 🧸',
-    '+1 Phép Màu Xua Cảm Cúm! ✨',
-    '+15% Đề Kháng Siêu Cường! 🛡️',
-    '+15% Vitamin Hạnh Phúc! 🍓'
+    '+15% Năng Lượng Cho Công Chúa! ⚡',
+    '+1 Cốc Nước Ấm Cho Sếp Trang! 🍵',
+    '+1 Nụ Hôn Trán Dịu Dàng Cho Cô Nương! 💋',
+    '+1 Lời Động Viên Ấm Lòng Công Chúa! 🌸',
+    '+1 Chiếc Ôm Thật Chặt Cho Sếp! 🧸',
+    '+1 Phép Màu Xua Cảm Cúm Cho Cô Nương! ✨',
+    '+15% Đề Kháng Siêu Cường Cho Công Chúa! 🛡️',
+    '+15% Vitamin Hạnh Phúc Cho Sếp Trang! 🍓'
   ];
 
   function updateEnergyUI() {
@@ -906,19 +906,19 @@ document.addEventListener('DOMContentLoaded', () => {
     // Lời động viên ấm áp theo từng mốc năng lượng
     if (energyStatusText) {
       if (energy === 0) {
-        energyStatusText.textContent = '"Bé Trang ơi, cùng nạp năng lượng yêu thương từ anh để mau khỏe nhé!" 🌸';
+        energyStatusText.textContent = '"Công Chúa Trang ơi, cùng nạp năng lượng yêu thương từ anh để mau khỏe nhé!" 🌸';
       } else if (energy < 50) {
-        energyStatusText.textContent = '"Đang truyền năng lượng ấm áp từ xa cho bé Trang... Bé cố lên nhé!" 💕';
+        energyStatusText.textContent = '"Đang truyền năng lượng ấm áp từ xa cho Sếp Trang... Cô Nương cố lên nhé!" 💕';
       } else if (energy < 80) {
-        energyStatusText.textContent = '"Sức khỏe đang hồi phục rất tốt nè, sắc mặt hồng hào hơn rồi!" 🌸';
+        energyStatusText.textContent = '"Sức khỏe của Công Chúa đang hồi phục rất tốt nè, sắc mặt hồng hào hơn rồi!" 🌸';
       } else if (energy < 100) {
-        energyStatusText.textContent = '"Sắp đầy 100% rồi! Sắp thành cô bé khỏe re tung tăng rồi nha!" ✨';
+        energyStatusText.textContent = '"Sắp đầy 100% rồi! Sắp thành Sếp Trang khỏe re tung tăng rồi nha!" ✨';
       } else if (energy === 100) {
-        energyStatusText.textContent = '🎉 100% ĐẦY BÌNH! Bé Thu Trang đã nạp trọn vẹn 100% tình yêu và sức đề kháng! 💖';
+        energyStatusText.textContent = '🎉 100% ĐẦY BÌNH! Công Chúa Thu Trang đã nạp trọn vẹn 100% tình yêu và đề kháng! 💖';
       } else if (energy <= 200) {
-        energyStatusText.textContent = `🚀 NĂNG LƯỢNG SIÊU CẤP (+${energy}%)! Tình yêu của anh sạc tràn bình, vi khuẩn cúm chạy mất dép rồi bé Trang ơi! ⚡👑`;
+        energyStatusText.textContent = `🚀 NĂNG LƯỢNG SIÊU CẤP (+${energy}%)! Tình yêu của anh sạc tràn bình, vi khuẩn cúm chạy mất dép rồi Sếp Trang ơi! ⚡👑`;
       } else {
-        energyStatusText.textContent = `🌟 SIÊU NĂNG LƯỢNG VŨ TRỤ VÔ CỰC (+${energy}%)! Bé Thu Trang trở thành cô gái mạnh mẽ và hạnh phúc nhất quả đất! 🪐💖✨`;
+        energyStatusText.textContent = `🌟 SIÊU NĂNG LƯỢNG VŨ TRỤ VÔ CỰC (+${energy}%)! Cô Nương Thu Trang trở thành cô gái mạnh mẽ và hạnh phúc nhất quả đất! 🪐💖✨`;
       }
     }
   }
@@ -1168,20 +1168,20 @@ document.addEventListener('DOMContentLoaded', () => {
   // ==========================================
   const moodResponses = {
     sick: {
-      reply: 'Thương em quá! Giờ Trang nằm ngoan nghỉ ngơi, trùm chăn ấm và nhắm mắt lại đi nhé. Mọi chuyện cứ để anh lo hết! 💕',
-      msg: 'Anh ơi, em vẫn còn hơi mệt một chút... Anh dỗ dành em đi! 🥺'
+      reply: 'Thương Công Chúa của anh quá! Giờ Cô Nương cứ nằm ngoan nghỉ ngơi, trùm chăn ấm và nhắm mắt lại đi nhé. Mọi chuyện cứ để anh lo hết! 💕',
+      msg: 'Anh ơi, Sếp của anh vẫn còn hơi mệt một chút... Anh dỗ dành em đi! 🥺'
     },
     throat: {
-      reply: 'Họng rát khó chịu lắm đúng không? Bé Trang uống một ngụm nước ấm nhỏ xíu xiu, giữ ấm cổ họng đừng để gió lùa nha! 🍵',
-      msg: 'Anh ơi, cổ họng em còn hơi rát, em đang uống nước ấm như anh dặn rồi nè! 🍵'
+      reply: 'Họng rát khó chịu lắm đúng không Công Chúa? Sếp uống một ngụm nước ấm nhỏ xíu xiu, giữ ấm cổ họng đừng để gió lùa nha Cô Nương! 🍵',
+      msg: 'Anh ơi, cổ họng Cô Nương còn hơi rát, em đang uống nước ấm như anh dặn rồi nè! 🍵'
     },
     better: {
-      reply: 'Hoan hô! Em bé của anh giỏi quá đi thôi! Đỡ mệt rồi nhưng vẫn phải nghỉ ngơi đầy đủ, không được chủ quan đâu đấy! 🌸',
-      msg: 'Anh ơi, em thấy người nhẹ nhõm và đỡ mệt nhiều rồi nè! Yêu anh nhiều lắm! 🥰'
+      reply: 'Hoan hô! Công Chúa của anh giỏi quá đi thôi! Sếp đỡ mệt rồi nhưng vẫn phải nghỉ ngơi đầy đủ, không được chủ quan đâu đấy Cô Nương! 🌸',
+      msg: 'Báo cáo anh: Sếp Trang đã thấy người nhẹ nhõm và đỡ mệt nhiều rồi nè! Yêu anh! 🥰'
     },
     happy: {
-      reply: 'Tuyệt vời ông mặt trời! Bé Trang đã hồi phục thần kỳ! Chuẩn bị tinh thần lên đồ anh dẫn đi ăn món em thích nhất nha! 🥳✨',
-      msg: 'Anh ơi, em khỏe khoắn tung tăng trở lại rồi! Khi nào anh dẫn em đi ăn đây ta? 🧋🎉'
+      reply: 'Tuyệt vời ông mặt trời! Cô Nương Thu Trang đã hồi phục thần kỳ! Chuẩn bị tinh thần lên đồ anh dẫn Công Chúa đi ăn món em thích nhất nha! 🥳✨',
+      msg: 'Báo cáo: Sếp Trang đã khỏe khoắn trở lại rồi! Khi nào anh dẫn Cô Nương đi ăn đây ta? 🧋🎉'
     }
   };
 
@@ -1328,12 +1328,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const hugEmojis = ['💖', '💕', '🧸', '🌸', '✨', '🍓', '☁️', '🥰', '💌', '🍯'];
   const hugCheers = [
-    'Ôm Trang một cái thật chặt nè! 🤗',
-    'Thương cô gái của anh nhiều lắm! ❤️',
-    'Thêm 1 nụ hôn má cho em đỡ mệt! 💋',
-    'Có anh ở bên, Trang yên tâm nhé! 🌸',
-    'Bé Trang là cô gái kiên cường nhất! ✨',
-    'Khỏe lại mau để anh dẫn đi chơi! 🧋'
+    'Ôm Công Chúa một cái thật chặt nè! 🤗',
+    'Thương Sếp của anh nhiều lắm! ❤️',
+    'Thêm 1 nụ hôn má cho Cô Nương đỡ mệt! 💋',
+    'Có anh ở bên, Công Chúa yên tâm nhé! 🌸',
+    'Sếp Trang là cô gái mạnh mẽ nhất trần đời! ✨',
+    'Cô Nương khỏe lại mau để anh chiều chuộng nha! 🧋'
   ];
 
   if (hugBtn) {
@@ -1424,21 +1424,21 @@ document.addEventListener('DOMContentLoaded', () => {
     let isBoosting = false;
 
     const jerryLines = [
-      'Sợ tiêm lắm! 🐭💨',
-      'Không uống thuốc đắng đâuuu!',
-      'Trang ơi cứu Jerry với! 🧀',
-      'Chạy trốn bác sĩ Tom thôiii!',
+      'Công Chúa Trang ơi cứu Jerry với! 🧀',
+      'Sếp Trang ơi bác sĩ Tom định tiêm em! 🐭💨',
+      'Cô Nương ơi giúp Jerry trốn với!',
+      'Sợ tiêm lắm, không uống thuốc đắng đâuuu! 🐭',
       'Jerry muốn ăn phô mai cơ! 🧀',
       'Bác sĩ Tom tha cho em đi! 🥺'
     ];
 
     const tomLines = [
       'Đứng lại uống thuốc ngoan nào Jerry! 🐱💉',
+      'Uống thuốc mới mau khỏe như Sếp Trang chứ! 🩺',
+      'Không được làm ồn để Cô Nương nghỉ ngơi! 🤫',
       'Chỉ một thìa siro dâu ngọt thôi mà! 🍓',
-      'Uống thuốc mới mau khỏi như bé Trang chứ! 🩺',
-      'Bác sĩ chỉ đo nhiệt độ thôi! 🌡️',
-      'Ngoan ngoãn nằm nghỉ ngơi đi Jerry! 🏃‍♂️',
-      'Đừng chạy nữa, anh mệt lắm rồi! 😹'
+      'Uống thuốc ngoan cho Công Chúa Trang vui nào! 💖',
+      'Đừng chạy nữa, bác sĩ mệt lắm rồi! 😹'
     ];
 
     // Animation frame movement
