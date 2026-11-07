@@ -44,16 +44,16 @@ Một trang web tĩnh siêu dễ thương, ấm áp và ngập tràn sự quan t
    - Chú cua nhỏ chibi siêu đáng yêu với đôi cuống mắt cử động, đôi mắt anime long lanh nhấp nháy, má hồng hây hây và nụ cười rạng rỡ.
    - Hai càng to vẫy chào mừng và ôm trọn **bó hoa to đùng nở rộ ngập tràn các loài hoa**: hoa hồng đỏ nhung, mẫu đơn hồng, hoa hướng dương rực rỡ, tulip cam ấm áp, lavender tím mộng mơ, hoa lưu ly xanh biếc, hoa cúc họa mi trắng, hoa đào cùng cành lá tươi xanh và thắt nơ ruy băng satin óng ánh.
    - 6 chân cua nhỏ nhúc nhích ngộ nghĩnh bên dưới (`crabLegWiggle`).
-   - Chạm vào chú cua nhỏ sẽ tung ra pháo hoa sắc màu kèm các câu thoại ngọt ngào: *"Cua nhỏ mang bó hoa to thật nhiều hoa tặng Thu Trang nè! 🦀💐"*, *"Báo cáo Sếp: Cua nhỏ đã dùng càng kẹp hết mệt mỏi quăng đi xa rồi! 🦀✨"*, *"Cua nhỏ bò ngang nhưng lòng quan tâm anh dành cho Sếp luôn đi thẳng! 🦀✨"*.
+   - Chạm vào chú cua nhỏ sẽ tung ra pháo hoa sắc màu kèm các câu thoại ngọt ngào: *"Cua nhỏ mang bó hoa to thật nhiều hoa tặng Thu Trang nè! 🦀💐"*, *"Cua nhỏ đã dùng càng kẹp hết mệt mỏi của nàng quăng đi thật xa rồi! 🦀✨"*, *"Cua nhỏ bò ngang nhưng tấm lòng anh hướng về em bé luôn đi thẳng! 🦀✨"*.
 
 6. **🎮 Trò Chơi Mini Đập Tan Vi Khuẩn Cúm (Whack-A-Virus)**:
    - 6 ổ mây pastel dễ thương với những chú vi khuẩn ngố (`👾`, `🦠`, `🤧`, `🤒`) thò đầu lên nhấp nhô.
    - Chạm vào từng chú vi khuẩn để "đập tan vi khuẩn", nạp ngay +15 điểm đề kháng mỗi lần đập trúng kèm hiệu ứng âm thanh pop vui nhộn và bóng thoại cổ vũ!
-   - Đạt đủ 100 điểm đề kháng sẽ mở khóa **Cúp Chiến Thắng 🏆** cùng pháo hoa rực rỡ ăn mừng Sếp Trang đã đánh bại vi khuẩn cúm!
+   - Đạt đủ 100 điểm đề kháng sẽ mở khóa **Cúp Chiến Thắng 🏆** cùng pháo hoa rực rỡ ăn mừng công chúa Thu Trang đã đánh bại vi khuẩn cúm!
 
 7. **🍲 Vòng Quay Món Ngon Bồi Bổ (Món Thơm Má & Hôn Môi Để Phía Sau)**:
    - Mặc định mở đầu bằng món cháo gà hạt sen nóng hổi giải cảm và các món ấm bụng dinh dưỡng (súp cua, nước cam, phở bò tái lăn, sữa hạnh nhân ấm, đĩa táo lê...).
-   - Hai món đặc biệt ngọt ngào **Món Anh Thơm Má** và **Món Anh Hôn Môi** được xếp ở **phía sau** như phần quà bất ngờ khi Sếp quay tiếp!
+   - Hai món đặc biệt ngọt ngào **Món Anh Thơm Má** và **Món Anh Hôn Môi** được xếp ở **phía sau** như phần quà bất ngờ khi nàng quay tiếp!
    - Bắn pháo hoa trái tim khi quay trúng hai món cưng chiều đặc biệt này!
 
 8. **🍬 Tiệm Thuốc Kẹo Ngọt Độc Quyền (Bác Sĩ Anh)**:
